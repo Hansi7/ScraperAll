@@ -1,0 +1,1 @@
+{"Name":"优酷-列表页-播放量(万次)","StartURL":"http://list.youku.com/category/video/c_171_d_4_s_1_p_1.html","XPath":"","CssSelector":"li.title","NodeOffset":2,"NodeAttribute":"InnerText","Remover":[],"Replacer":{},"RemoveBefore":"","RemoveAfter":""}

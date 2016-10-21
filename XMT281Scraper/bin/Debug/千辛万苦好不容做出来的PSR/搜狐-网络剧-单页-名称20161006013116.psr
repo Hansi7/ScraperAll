@@ -1,0 +1,1 @@
+{"Name":"搜狐-网络剧-单页-名称","StartURL":"http://tv.sohu.com/item/MTIwMzU3NA==.html","XPath":"//span[@class='vname']","CssSelector":"","NodeOffset":0,"NodeAttribute":"InnerText","Remover":["\r","\n","\t"," "],"Replacer":{"总播放：":"   ","昨日新增播放":"@@@","亿":"*10000"},"RemoveBefore":"   ","RemoveAfter":"@@@"}

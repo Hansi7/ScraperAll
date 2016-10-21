@@ -1,0 +1,1 @@
+{"Name":"腾讯-电视剧列表页-标题","StartURL":"http://v.qq.com/x/movielist/?cate=10002&offset=0&sort=5&pay=-1","XPath":"","CssSelector":"strong.figure_title","NodeOffset":0,"NodeAttribute":"InnerText","Remover":[],"Replacer":{},"RemoveBefore":null,"RemoveAfter":null}

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="XMT281Scraper" Label="XMT281Scraper" Category="项目" />
+    <Node Id="DynamicJson 1.2.0.0" Label="DynamicJson 1.2.0.0" Category="包" />
+    <Node Id="FSharp.Core 4.0.0.1" Label="FSharp.Core 4.0.0.1" Category="包" />
+    <Node Id="HtmlAgilityPack 1.4.9.4" Label="HtmlAgilityPack 1.4.9.4" Category="包" />
+    <Node Id="Newtonsoft.Json 9.0.1" Label="Newtonsoft.Json 9.0.1" Category="包" />
+    <Node Id="ScrapySharp 2.6.2" Label="ScrapySharp 2.6.2" Category="包" />
+  </Nodes>
+  <Links>
+    <Link Source="ScrapySharp 2.6.2" Target="FSharp.Core 4.0.0.1" Category="程序包依赖项" />
+    <Link Source="ScrapySharp 2.6.2" Target="HtmlAgilityPack 1.4.9.4" Category="程序包依赖项" />
+    <Link Source="XMT281Scraper" Target="DynamicJson 1.2.0.0" Category="安装的程序包" />
+    <Link Source="XMT281Scraper" Target="Newtonsoft.Json 9.0.1" Category="安装的程序包" />
+    <Link Source="XMT281Scraper" Target="ScrapySharp 2.6.2" Category="安装的程序包" />
+  </Links>
+  <Categories>
+    <Category Id="项目" />
+    <Category Id="包" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="项目" ValueLabel="True">
+      <Condition Expression="HasCategory('项目')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="程序包依赖项" ValueLabel="True">
+      <Condition Expression="HasCategory('程序包依赖项')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>
