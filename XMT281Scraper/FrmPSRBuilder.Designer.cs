@@ -418,21 +418,21 @@
             // 
             // btn_LoadHtml
             // 
-            this.btn_LoadHtml.Location = new System.Drawing.Point(421, 45);
+            this.btn_LoadHtml.Location = new System.Drawing.Point(421, 20);
             this.btn_LoadHtml.Name = "btn_LoadHtml";
-            this.btn_LoadHtml.Size = new System.Drawing.Size(75, 23);
+            this.btn_LoadHtml.Size = new System.Drawing.Size(75, 68);
             this.btn_LoadHtml.TabIndex = 30;
-            this.btn_LoadHtml.Text = "试读网站";
+            this.btn_LoadHtml.Text = "使用模拟浏览器模块读取源代码";
             this.btn_LoadHtml.UseVisualStyleBackColor = true;
             this.btn_LoadHtml.Click += new System.EventHandler(this.btn_LoadHtml_Click);
             // 
             // btn_LoadHtml2
             // 
-            this.btn_LoadHtml2.Location = new System.Drawing.Point(502, 45);
+            this.btn_LoadHtml2.Location = new System.Drawing.Point(502, 20);
             this.btn_LoadHtml2.Name = "btn_LoadHtml2";
-            this.btn_LoadHtml2.Size = new System.Drawing.Size(75, 23);
+            this.btn_LoadHtml2.Size = new System.Drawing.Size(75, 68);
             this.btn_LoadHtml2.TabIndex = 31;
-            this.btn_LoadHtml2.Text = "试读网站";
+            this.btn_LoadHtml2.Text = "从主界面浏览器中获取源代码";
             this.btn_LoadHtml2.UseVisualStyleBackColor = true;
             this.btn_LoadHtml2.Click += new System.EventHandler(this.btn_LoadHtml2_Click);
             // 

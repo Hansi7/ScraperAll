@@ -194,7 +194,7 @@ namespace XMT281Scraper
         {
             try
             {
-                Tools.Serializer.Serialize(txt_NAME.Text.Trim() + DateTime.Now.ToString("yyyyMMddHHmmss") + ".psr", this.Processor);
+                Tools.Serializer.Serialize(txt_NAME.Text.Trim() + DateTime.Now.ToString("@yyyyMMddHHmmss") + ".psr", this.Processor);
                 MessageBox.Show("成功");
             }
             catch (Exception err)

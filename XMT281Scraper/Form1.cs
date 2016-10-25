@@ -28,7 +28,7 @@ namespace XMT281Scraper
         
         private void btnStart_Click(object sender, EventArgs e)
         {
-            webbrowser.Navigate(txt_URLS.Text);
+            webbrowser.Navigate(txt_WebbrowserURL.Text.Trim());
         }
 
         private List<string> urlsList()
@@ -150,7 +150,11 @@ namespace XMT281Scraper
                 {
                     var psr = Tools.Serializer.DeSerialize(item);
                     this.ListPsrs.Add(psr);
-                    txt_URLS.AppendText("\r\n" + psr.StartURL);
+                    if (txt_URLS.Text.Trim() == string.Empty)
+                    {
+                        txt_URLS.Text = (psr.StartURL);
+                        txt_WebbrowserURL.Text = psr.StartURL;
+                    }
                 }
             }
             refreshToUI();
