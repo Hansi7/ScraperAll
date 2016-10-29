@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * 作者：Hansi7
+ * 备注：只有当结果是URL的时候才可以有SubProcessor，否则不支持
+ * 
+ * 
+ * 
+ * */
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,24 +15,17 @@ using System.Threading.Tasks;
 
 namespace XMT281Scraper.Entities
 {
-    public class Processor
+     public class Processor
     {
-        public Processor()
-        {
-            this.Replacer = new Dictionary<string, string>();
-            this.Remover = new List<string>();
-        }
-        public string Name { get; set; }
-        public string StartURL { get; set; }
         public string XPath { get; set; }
         public string CssSelector { get; set; }
-        public EnumNodeOffset NodeOffset { get; set; }
+        public List<EnumNodeOffset> NodeOffset { get; set; }
         public string NodeAttribute { get; set; }
         public List<string> Remover { get; set; }
-        public Dictionary<string,string> Replacer { get;set;}
+        public Dictionary<string, string> Replacer { get; set; }
         public string RemoveBefore { get; set; }
         public string RemoveAfter { get; set; }
-
+        public Processor SubProcessor { get; set; }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -51,13 +53,4 @@ namespace XMT281Scraper.Entities
             return sb.ToString();
         }
     }
-    public enum EnumNodeOffset
-    {
-        NoOffset =0,
-        SinblingLeft = 1,
-        SinblingRight =2,
-        Parent =3,
-        Child =4
-    }
-
 }

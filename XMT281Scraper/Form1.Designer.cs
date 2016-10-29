@@ -173,7 +173,7 @@
             // 
             // btn_ScrapyNoLoading
             // 
-            this.btn_ScrapyNoLoading.Location = new System.Drawing.Point(817, 112);
+            this.btn_ScrapyNoLoading.Location = new System.Drawing.Point(793, 112);
             this.btn_ScrapyNoLoading.Name = "btn_ScrapyNoLoading";
             this.btn_ScrapyNoLoading.Size = new System.Drawing.Size(118, 34);
             this.btn_ScrapyNoLoading.TabIndex = 16;

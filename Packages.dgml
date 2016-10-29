@@ -1,24 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="XMT281Scraper" Label="XMT281Scraper" Category="项目" />
-    <Node Id="DynamicJson 1.2.0.0" Label="DynamicJson 1.2.0.0" Category="包" />
-    <Node Id="FSharp.Core 4.0.0.1" Label="FSharp.Core 4.0.0.1" Category="包" />
-    <Node Id="HtmlAgilityPack 1.4.9.4" Label="HtmlAgilityPack 1.4.9.4" Category="包" />
-    <Node Id="Newtonsoft.Json 9.0.1" Label="Newtonsoft.Json 9.0.1" Category="包" />
-    <Node Id="ScrapySharp 2.6.2" Label="ScrapySharp 2.6.2" Category="包" />
+    <Node Id="DynamicJson 1.2.0.0" Category="包" Bounds="0,55.24,135.666666666667,25.24" Label="DynamicJson 1.2.0.0" />
+    <Node Id="FSharp.Core 4.0.0.1" Category="包" Bounds="166.895,110.48,129.876666666667,25.24" Label="FSharp.Core 4.0.0.1" />
+    <Node Id="HtmlAgilityPack 1.4.9.4" Category="包" Bounds="327.033333333333,110.48,151.6,25.24" Label="HtmlAgilityPack 1.4.9.4" />
+    <Node Id="Newtonsoft.Json 9.0.1" Category="包" Bounds="165.83,55.24,146.006666666667,25.24" Label="Newtonsoft.Json 9.0.1" />
+    <Node Id="ScrapySharp 2.6.2" Category="包" Bounds="341.928333333333,55.24,121.81,25.24" Label="ScrapySharp 2.6.2" />
+    <Node Id="XMT281Scraper" Category="项目" Bounds="186.498333333333,-42,110.67,25.24" Label="XMT281Scraper" UseManualLocation="True" />
   </Nodes>
   <Links>
-    <Link Source="ScrapySharp 2.6.2" Target="FSharp.Core 4.0.0.1" Category="程序包依赖项" />
-    <Link Source="ScrapySharp 2.6.2" Target="HtmlAgilityPack 1.4.9.4" Category="程序包依赖项" />
-    <Link Source="XMT281Scraper" Target="DynamicJson 1.2.0.0" Category="安装的程序包" />
-    <Link Source="XMT281Scraper" Target="Newtonsoft.Json 9.0.1" Category="安装的程序包" />
-    <Link Source="XMT281Scraper" Target="ScrapySharp 2.6.2" Category="安装的程序包" />
+    <Link Source="ScrapySharp 2.6.2" Target="FSharp.Core 4.0.0.1" Category="程序包依赖项" Bounds="279.463806152344,80.4800033569336,84.3032836914063,27.2333984375" />
+    <Link Source="ScrapySharp 2.6.2" Target="HtmlAgilityPack 1.4.9.4" Category="程序包依赖项" Bounds="402.833343505859,80.4800033569336,0,21" />
+    <Link Source="XMT281Scraper" Target="DynamicJson 1.2.0.0" Category="安装的程序包" Bounds="98.2718010639471,-16.7600001144409,120.979470429951,67.6094484082956" />
+    <Link Source="XMT281Scraper" Target="Newtonsoft.Json 9.0.1" Category="安装的程序包" Bounds="239.500213615188,-16.7600001144409,1.94377612298956,63.004232634847" />
+    <Link Source="XMT281Scraper" Target="ScrapySharp 2.6.2" Category="安装的程序包" Bounds="262.728246288038,-16.7600001144409,111.50629288612,67.3469944835669" />
   </Links>
   <Categories>
-    <Category Id="项目" />
     <Category Id="包" />
+    <Category Id="安装的程序包" />
+    <Category Id="程序包依赖项" />
+    <Category Id="项目" />
   </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="标签" Description="可批注对象的可显示标签" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
   <Styles>
     <Style TargetType="Node" GroupLabel="项目" ValueLabel="True">
       <Condition Expression="HasCategory('项目')" />

@@ -1,42 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<DirectedGraph DataVirtualized="True" Layout="ForceDirected" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+<DirectedGraph DataVirtualized="True" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="(@1 @2 @3 Member=(Name=btn_AddString_Click @5))" Category="CodeSchema_Method" Bounds="67.3952578003025,331.44,151.29,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="btn_AddString_Click" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="btn_AddString_Click" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/XMT281Scraper/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=139 StartCharacterOffset=8 EndLineNumber=139 EndCharacterOffset=8)" />
-    <Node Id="(@1 @2 @3 Member=(Name=btn_LoadHtml_Click @5))" Category="CodeSchema_Method" Bounds="0,220.96,149.533333333333,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="btn_LoadHtml_Click" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="btn_LoadHtml_Click" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/XMT281Scraper/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=23 StartCharacterOffset=8 EndLineNumber=23 EndCharacterOffset=8)" />
-    <Node Id="(@1 @2 @3 Member=(Name=btn_RESET_REMOVER_Click @5))" Category="CodeSchema_Method" Bounds="45.270113781943,55.24,191.943333333333,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="btn_RESET_REMOVER_Click" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="btn_RESET_REMOVER_Click" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/XMT281Scraper/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=171 StartCharacterOffset=8 EndLineNumber=171 EndCharacterOffset=8)" />
-    <Node Id="(@1 @2 @3 Member=(Name=rb_Defult_OFFSET_CheckedChanged @5))" Category="CodeSchema_Method" Bounds="21.0426893658213,0,243.353333333333,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="rb_Defult_OFFSET_CheckedChanged" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="rb_Defult_OFFSET_CheckedChanged" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/XMT281Scraper/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=180 StartCharacterOffset=8 EndLineNumber=180 EndCharacterOffset=8)" />
-    <Node Id="(@1 @2 @3 Member=(Name=rb_Defult_OFFSET_Click @5))" Category="CodeSchema_Method" Bounds="59.7945000463904,276.2,169.446666666667,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="rb_Defult_OFFSET_Click" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="rb_Defult_OFFSET_Click" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/XMT281Scraper/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=185 StartCharacterOffset=8 EndLineNumber=185 EndCharacterOffset=8)" />
-    <Node Id="(@1 @2 @3 Member=(Name=rb_none_ATT_CheckedChanged @5))" Category="CodeSchema_Method" Bounds="102.649613827735,110.48,216.686666666667,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="rb_none_ATT_CheckedChanged" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="rb_none_ATT_CheckedChanged" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/XMT281Scraper/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=126 StartCharacterOffset=8 EndLineNumber=126 EndCharacterOffset=8)" />
-    <Node Id="@6" Category="CodeSchema_Method" Bounds="104.934806915521,165.72,75.89,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="refresh" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="refresh" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/XMT281Scraper/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=90 StartCharacterOffset=8 EndLineNumber=90 EndCharacterOffset=8)" />
+    <Node Id="(@1 @2 @3 Member=Child)" Category="CodeSchema_Field" Bounds="-401.128809204102,33.4115155401639,66.48,25.24" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="Child" />
+    <Node Id="(@1 @2 @3 Member=NoOffset)" Category="CodeSchema_Field" Bounds="-401.128795776367,60.6515134039334,89.3199999999999,25.24" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="NoOffset" />
+    <Node Id="(@1 @2 @3 Member=Parent)" Category="CodeSchema_Field" Bounds="-401.128827921549,87.8915055456571,74.2333333333333,25.24" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="Parent" />
+    <Node Id="(@1 @2 @3 Member=SinblingLeft)" Category="CodeSchema_Field" Bounds="-401.128809204102,115.131499594729,105.23,25.24" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="SinblingLeft" />
+    <Node Id="(@1 @2 @3 Member=SinblingRight)" Category="CodeSchema_Field" Bounds="-401.128805135091,142.37148219971,114.196666666667,25.24" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" DelayedCrossGroupLinksState="Fetched" Label="SinblingRight" />
+    <Node Id="@10" Category="CodeSchema_Method" Bounds="-99.6424941944109,-131.995732209664,133.315207323066,25.23112192" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="set_RemoveAfter" UseManualLocation="True" />
+    <Node Id="@13" Category="CodeSchema_Method" Bounds="-359.881831814007,-319.026929696522,151.29,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="btn_AddString_Click" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="btn_AddString_Click" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=131 StartCharacterOffset=8 EndLineNumber=131 EndCharacterOffset=8)" />
+    <Node Id="@14" Category="CodeSchema_Method" Bounds="-686.458698480674,-319.026929696522,191.943333333333,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="btn_RESET_REMOVER_Click" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="btn_RESET_REMOVER_Click" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=163 StartCharacterOffset=8 EndLineNumber=163 EndCharacterOffset=8)" />
+    <Node Id="@16" Category="CodeSchema_Method" Bounds="-464.515265147341,-319.026854696522,74.6333333333333,25.24" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Scrape" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="Scrape" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/Tools/Scraper.cs StartLineNumber=12 StartCharacterOffset=8 EndLineNumber=12 EndCharacterOffset=8)" />
+    <Node Id="@17" Category="CodeSchema_Method" Bounds="-3.82600412394208,-192.832382317087,91.7105333333334,25.23993088" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsSpecialName="True" DelayedCrossGroupLinksState="Fetched" Label="Processor" UseManualLocation="True" />
+    <Node Id="@18" Category="CodeSchema_Property" Bounds="-253.273015252479,-102.78417068235,124.022394787382,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="2" Group="Collapsed" Label="CssSelector" UseManualLocation="True" />
+    <Node Id="@19" Category="CodeSchema_Method" Bounds="71.915507326046,-76.7883152853721,125.90962205738,25.239952" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="get_CssSelector" UseManualLocation="True" />
+    <Node Id="@20" Category="CodeSchema_Method" Bounds="-99.6399079972424,-76.7600775057322,135.43,25.24" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="get_RemoveAfter" UseManualLocation="True" />
+    <Node Id="@21" Category="CodeSchema_Property" Bounds="-720.125046527392,-76.6815753476321,92.8992523376828,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Name" />
+    <Node Id="@22" Category="CodeSchema_Property" Bounds="-253.233231939133,-215.532548971495,141.811828124349,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="NodeAttribute" />
+    <Node Id="@23" Category="CodeSchema_Property" Bounds="-613.94285329015,-186.66672865227,125.253265031016,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="NodeOffset" />
+    <Node Id="@24" Category="CodeSchema_Method" Bounds="-46.0982984806739,-319.026854696522,102.886666666667,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="refreshToUI" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="refreshToUI" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=112 StartCharacterOffset=8 EndLineNumber=112 EndCharacterOffset=8)" />
+    <Node Id="@25" Category="CodeSchema_Property" Bounds="-440.000119955237,-78.5887844598361,133.542394787382,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="2" FunctionTypeFlags="属性分配" Group="Collapsed" Label="RemoveAfter" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/Entities/Processor.cs StartLineNumber=24 StartCharacterOffset=8 EndLineNumber=24 EndCharacterOffset=8)" UseManualLocation="True" />
+    <Node Id="@26" Category="CodeSchema_Property" Bounds="-444.81973171402,-185.53672897107,142.591603484349,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="RemoveBefore" UseManualLocation="True" />
+    <Node Id="@27" Category="CodeSchema_Property" Bounds="56.6076897693429,-137.592311038982,109.661090204349,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Remover" UseManualLocation="True" />
+    <Node Id="@28" Category="CodeSchema_Property" Bounds="-81.3885137683419,-137.592261038981,107.994903537683,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Replacer" UseManualLocation="True" />
+    <Node Id="@29" Category="CodeSchema_Property" Bounds="-597.200999636818,-76.6920326516322,108.484762417683,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="StartURL" />
+    <Node Id="@30" Category="CodeSchema_Method" Bounds="-178.591731814007,-319.026854696522,102.493333333333,25.24" CodeSchemaProperty_IsPrivate="True" CommonLabel="tryBulidPSR" DelayedCrossGroupLinksState="Fetched" FunctionTypeFlags="方法" Label="tryBulidPSR" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/FrmPSRBuilder.cs StartLineNumber=31 StartCharacterOffset=8 EndLineNumber=31 EndCharacterOffset=8)" />
+    <Node Id="@31" Category="CodeSchema_Property" Bounds="-736.028324881167,-186.681575347632,92.0328352710162,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="XPath" />
+    <Node Id="@4" Category="CodeSchema_Enum" Bounds="-422.247149861654,7.41141554016392,156.433333333333,166.200166659546" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="EnumNodeOffset" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="5" Group="Expanded" Icon="CodeSchema_Enum" Label="EnumNodeOffset" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/Entities/Processor.cs StartLineNumber=53 StartCharacterOffset=4 EndLineNumber=53 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="-756.031878456317,-255.532648971495,942.299644054859,223.851173623863" CodeSchemaProperty_IsPublic="True" CommonLabel="Processor" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="12" Group="Expanded" Icon="CodeSchema_Class" Label="Processor" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///E:/Codes/ScraperAll/XMT281Scraper/Entities/Processor.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@9" Category="CodeSchema_Method" Bounds="71.915507326046,-132.017267285372,123.786713390713,25.239952" CodeSchemaProperty_IsCompilerGenerated="True" CodeSchemaProperty_IsPublic="True" DelayedCrossGroupLinksState="Fetched" Label="set_CssSelector" UseManualLocation="True" />
   </Nodes>
   <Links>
-    <Link Source="(@1 @2 @3 Member=(Name=btn_AddString_Click @5))" Target="@6" Category="CodeSchema_Calls" Bounds="163.413330078125,197.022323608398,75.9620208740234,134.417678833008" Weight="1" />
-    <Link Source="(@1 @2 @3 Member=(Name=btn_LoadHtml_Click @5))" Target="@6" Category="CodeSchema_Calls" Bounds="90.3276338994788,196.629030554979,30.0010632548751,24.330969445021" Weight="1" />
-    <Link Source="(@1 @2 @3 Member=(Name=btn_RESET_REMOVER_Click @5))" Target="@6" Category="CodeSchema_Calls" Bounds="92.8291397094727,80.4800033569336,31.4294662475586,78.8028335571289" Weight="1" />
-    <Link Source="(@1 @2 @3 Member=(Name=rb_Defult_OFFSET_CheckedChanged @5))" Target="@6" Category="CodeSchema_Calls" Bounds="35.1359329223633,25.2399997711182,85.2709655761719,134.790105819702" Weight="1" />
-    <Link Source="(@1 @2 @3 Member=(Name=rb_Defult_OFFSET_Click @5))" Target="@6" Category="CodeSchema_Calls" Bounds="147.489990234375,199.758499145508,9.17683410644531,76.4415130615234" Weight="1" />
-    <Link Source="(@1 @2 @3 Member=(Name=rb_none_ATT_CheckedChanged @5))" Target="@6" Category="CodeSchema_Calls" Bounds="165.430916675798,135.72,30.0010632532139,24.330969444855" Weight="1" />
+    <Link Source="@13" Target="@10" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@13" Target="@25" Bounds="-399.388585370542,-379.377907585094,204.744145340169,211.482010905309" />
+    <Link Source="@13" Target="@26" Category="CodeSchema_Calls" Bounds="-360.145546316881,-293.786921386719,67.4603723222272,100.771327002982" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@13" Target="@27" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@13" Target="@28" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@14" Target="@10" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@14" Target="@25" Bounds="-484.994253199464,-379.377907585094,61.0753240161735,209.308444454509" />
+    <Link Source="@14" Target="@26" Category="CodeSchema_Calls" Bounds="-569.956781287643,-293.786921386719,168.434307029892,103.537105727089" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@14" Target="@27" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@14" Target="@28" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@16" Target="@19" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@16" Target="@20" Category="CodeSchema_Calls" Weight="2" />
+    <Link Source="@16" Target="@22" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@16" Target="@23" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@16" Target="@25" Bounds="-409.803797898848,-379.377907585094,79.6201084508749,209.535049485318" />
+    <Link Source="@16" Target="@26" Category="CodeSchema_Calls" Bounds="-422.11933512322,-293.786860351563,40.2078375522804,99.900991103142" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@16" Target="@27" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@16" Target="@28" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@16" Target="@31" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@16" Target="@6" Category="References" Weight="1" />
+    <Link Source="@17" Target="@27" Category="CodeSchema_Calls" Bounds="57.9204834195409,-167.592467421328,30.7286813415702,24.4030902064385" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@17" Target="@28" Category="CodeSchema_Calls" Bounds="-4.60065363540272,-167.592467421328,30.7355911467904,24.4038106233342" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@18" Target="@19" Category="Contains" FetchingParent="@18" />
+    <Link Source="@18" Target="@9" Category="Contains" FetchingParent="@18" />
+    <Link Source="@23" Target="@4" Category="References" Bounds="-558.125314281038,-428.188291305849,15.3655534757869,224.076112367616" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@24" Target="@19" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@24" Target="@21" Category="CodeSchema_Calls" Bounds="-625.112653396758,-293.786860351563,594.04869557692,205.907767386343" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@24" Target="@22" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@24" Target="@29" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@24" Target="@31" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@25" Target="@10" Category="Contains" FetchingParent="@25" />
+    <Link Source="@25" Target="@20" Category="Contains" FetchingParent="@25" />
+    <Link Source="@30" Target="@17" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@30" Target="@21" Category="CodeSchema_Calls" Bounds="-632.441453782718,-293.786860351563,475.844339327144,205.29011392255" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@30" Target="@22" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@30" Target="@23" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="5" />
+    <Link Source="@30" Target="@29" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@30" Target="@31" Category="CodeSchema_Calls" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@30" Target="@9" Category="CodeSchema_Calls" Weight="1" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=Child)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=NoOffset)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=Parent)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=SinblingLeft)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=SinblingRight)" Category="Contains" FetchingParent="@4" />
+    <Link Source="@6" Target="@17" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@18" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@21" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@22" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@23" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@25" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@26" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@27" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@28" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@29" Category="Contains" FetchingParent="@6" />
+    <Link Source="@6" Target="@31" Category="Contains" FetchingParent="@6" />
   </Links>
   <Categories>
     <Category Id="CodeSchema_Calls" Label="调用" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="调用者" OutgoingActionLabel="调用" />
+    <Category Id="CodeSchema_Class" Label="类" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="类" />
+    <Category Id="CodeSchema_Enum" Label="枚举" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Enum" NavigationActionLabel="枚举" />
+    <Category Id="CodeSchema_Field" Label="字段" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="字段" />
     <Category Id="CodeSchema_Member" Label="编号" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="成员" />
     <Category Id="CodeSchema_Method" Label="方法" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="方法" />
+    <Category Id="CodeSchema_Property" Label="属性" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Property" NavigationActionLabel="属性" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="返回" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="返回类型" OutgoingActionLabel="返回类型" />
+    <Category Id="CodeSchema_Type" Label="类型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="类型" />
+    <Category Id="Contains" Label="包含" Description="链接的源是否包含目标对象" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="包含者" IsContainment="True" OutgoingActionLabel="包含" />
+    <Category Id="References" Label="引用" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="引用者" OutgoingActionLabel="引用" />
   </Categories>
   <Properties>
     <Property Id="Bounds" DataType="System.Windows.Rect" />
     <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
     <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsCompilerGenerated" Label="是编译器生成的" Description="一个标志，用于指示表示此节点的代码是否由编译器生成" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="是构造函数" Description="一个标志，用于指示该方法是构造函数" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsFinal" Label="是最终的" Description="一个标志，用于指示该成员是“最终”成员且不能从其派生" DataType="System.Boolean" />
     <Property Id="CodeSchemaProperty_IsPrivate" Label="是私有的" Description="一个标志，用于指示该范围是“私有”范围" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="是公共的" Description="一个标志，用于指示该范围是“公共”范围" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsSpecialName" Label="是特殊名称" Description="一个标志，用于指示某些编译器以特殊方式对待该方法" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="是静态的" Description="一个标志，用于指示该成员是静态成员" DataType="System.Boolean" />
     <Property Id="CommonLabel" DataType="System.String" />
     <Property Id="DataVirtualized" Label="已虚拟化数据" Description="如果为 true，则图中可以包含表示虚拟化节点/链接(即，不在图中实际创建)的数据的节点和链接。" DataType="System.Boolean" />
     <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="延迟的子节点状态" Description="如果未指定延迟的子节点状态，则为 Unspecified。如果尚未将组包含的子节点提取到关系图中，则为 NotFetched。如果已提取组内的所有延迟的子节点，则为 Fetched。" DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
     <Property Id="DelayedCrossGroupLinksState" Label="延迟的跨组链接状态" Description="如果未指定延迟的跨组链接状态，则为 Unspecified。如果尚未将此节点上延迟的跨组链接提取到关系图中，则为 NotFetched。如果已提取所有延迟的跨组链接，则为 Fetched。" DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
     <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchedChildrenCount" DataType="System.Int32" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
     <Property Id="FunctionTypeFlags" Label="FunctionTypeFlags" Description="FunctionTypeFlags" DataType="System.String" />
+    <Property Id="Group" Label="组" Description="将节点显示为组" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
     <Property Id="GroupLabel" DataType="System.String" />
     <Property Id="Icon" Label="图标" Description="图标" DataType="System.String" />
     <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
     <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="已虚拟化链接源" Description="如果为 true，则链接源端包含虚拟化节点/链接(即，不在图中实际创建)的数据。" DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="已虚拟化链接目标" Description="如果为 true，则链接目标端包含虚拟化节点/链接(即，不在图中实际创建)的数据。" DataType="System.Boolean" />
     <Property Id="Label" Label="标签" Description="可批注对象的可显示标签" DataType="System.String" />
     <Property Id="Language" Label="语言" Description="语言" DataType="System.String" />
     <Property Id="Layout" DataType="System.String" />
@@ -44,6 +136,7 @@
     <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
     <Property Id="SourceLocation" Label="起始行号" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
     <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
     <Property Id="Value" DataType="System.String" />
     <Property Id="ValueLabel" DataType="System.String" />
     <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
@@ -60,44 +153,38 @@
   </QualifiedNames>
   <IdentifierAliases>
     <Alias n="1" Uri="Assembly=$(16cad867-fe64-4cfd-9d7e-a4bcfe2708cc.OutputPathUri)" />
-    <Alias n="2" Id="Namespace=XMT281Scraper" />
-    <Alias n="3" Id="Type=FrmPSRBuilder" />
-    <Alias n="4" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5.1/mscorlib.dll" />
-    <Alias n="5" Id="OverloadingParameters=[(@4 Namespace=System Type=Object),(@4 Namespace=System Type=EventArgs)]" />
-    <Alias n="6" Id="(@1 @2 @3 Member=refresh)" />
+    <Alias n="2" Id="Namespace=XMT281Scraper.Entities" />
+    <Alias n="3" Id="Type=EnumNodeOffset" />
+    <Alias n="4" Id="(@1 @2 @3)" />
+    <Alias n="5" Id="Type=Processor" />
+    <Alias n="6" Id="(@1 @2 @5)" />
+    <Alias n="7" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5/mscorlib.dll" />
+    <Alias n="8" Id="Namespace=System" />
+    <Alias n="9" Id="(@1 @2 @5 Member=(Name=set_CssSelector OverloadingParameters=[(@7 @8 Type=String)]))" />
+    <Alias n="10" Id="(@1 @2 @5 Member=(Name=set_RemoveAfter OverloadingParameters=[(@7 @8 Type=String)]))" />
+    <Alias n="11" Id="Namespace=XMT281Scraper" />
+    <Alias n="12" Id="Type=FrmPSRBuilder" />
+    <Alias n="13" Id="(@1 @11 @12 Member=(Name=btn_AddString_Click OverloadingParameters=[(@7 @8 Type=Object),(@7 @8 Type=EventArgs)]))" />
+    <Alias n="14" Id="(@1 @11 @12 Member=(Name=btn_RESET_REMOVER_Click OverloadingParameters=[(@7 @8 Type=Object),(@7 @8 Type=EventArgs)]))" />
+    <Alias n="15" Uri="Assembly=$(VsSolutionUri)/packages/HtmlAgilityPack.1.4.9.4/lib/Net45/HtmlAgilityPack.dll" />
+    <Alias n="16" Id="(@1 Namespace=XMT281Scraper.Tools Type=Scraper Member=(Name=Scrape OverloadingParameters=[(@15 Namespace=HtmlAgilityPack Type=HtmlDocument),@6,(@7 @8 Type=Boolean)]))" />
+    <Alias n="17" Id="(@1 @2 @5 Member=.ctor)" />
+    <Alias n="18" Id="(@1 @2 @5 Member=CssSelector)" />
+    <Alias n="19" Id="(@1 @2 @5 Member=get_CssSelector)" />
+    <Alias n="20" Id="(@1 @2 @5 Member=get_RemoveAfter)" />
+    <Alias n="21" Id="(@1 @2 @5 Member=Name)" />
+    <Alias n="22" Id="(@1 @2 @5 Member=NodeAttribute)" />
+    <Alias n="23" Id="(@1 @2 @5 Member=NodeOffset)" />
+    <Alias n="24" Id="(@1 @11 @12 Member=refreshToUI)" />
+    <Alias n="25" Id="(@1 @2 @5 Member=RemoveAfter)" />
+    <Alias n="26" Id="(@1 @2 @5 Member=RemoveBefore)" />
+    <Alias n="27" Id="(@1 @2 @5 Member=Remover)" />
+    <Alias n="28" Id="(@1 @2 @5 Member=Replacer)" />
+    <Alias n="29" Id="(@1 @2 @5 Member=StartURL)" />
+    <Alias n="30" Id="(@1 @11 @12 Member=tryBulidPSR)" />
+    <Alias n="31" Id="(@1 @2 @5 Member=XPath)" />
   </IdentifierAliases>
   <Styles>
-    <Style TargetType="Link" GroupLabel="Current Call Stack Link" ValueLabel="True" Visibility="Hidden">
-      <Condition Expression="HasCategory('CurrentCallStackCall')" />
-      <Setter Property="Stroke" Value="#FFD93701" />
-      <Setter Property="Weight" Value="1" />
-    </Style>
-    <Style TargetType="Link" GroupLabel="Call Stack Indirect Link" ValueLabel="True" Visibility="Hidden">
-      <Condition Expression="HasCategory('CallStackIndirectCall')" />
-      <Setter Property="Stroke" Value="#FFB8B8B8" />
-      <Setter Property="StrokeDashArray" Value="4 1" />
-    </Style>
-    <Style TargetType="Link" GroupLabel="Call Stack Direct Link" ValueLabel="True" Visibility="Hidden">
-      <Condition Expression="HasCategory('CallStackDirectCall')" />
-      <Setter Property="Stroke" Value="#FFB8B8B8" />
-    </Style>
-    <Style TargetType="Node" GroupLabel="External And Current" ValueLabel="True" Visibility="Hidden">
-      <Condition Expression="HasCategory('ExternalCallStackEntry') And HasCategory('CurrentCallStackEntry')" />
-      <Setter Property="Background" Value="#FFFFF8F0" />
-      <Setter Property="Stroke" Value="#FFCE5100" />
-    </Style>
-    <Style TargetType="Node" GroupLabel="当前调用堆栈节点" ValueLabel="True">
-      <Condition Expression="HasCategory('CurrentCallStackEntry') And !HasCategory('QueryResult')" />
-      <Setter Property="Background" Value="#FFFFE3C6" />
-      <Setter Property="Stroke" Value="#FFD93701" />
-    </Style>
-    <Style TargetType="Node" GroupLabel="外部调用堆栈入口" ValueLabel="True">
-      <Condition Expression="HasCategory('ExternalCallStackEntry')" />
-      <Setter Property="Background" Value="#FFF7F7F7" />
-      <Setter Property="StrokeDashArray" Value="1 3" />
-      <Setter Property="Foreground" Value="#FFA5A5A5" />
-      <Setter Property="Stroke" Value="#FFA5A5A5" />
-    </Style>
     <Style TargetType="Node" GroupLabel="结果" ValueLabel="True">
       <Condition Expression="HasCategory('QueryResult')" />
       <Setter Property="Background" Value="#FFBCFFBE" />
@@ -252,17 +339,12 @@
       <Condition Expression="IsCurrentCallstackFrame" />
       <Setter Property="IndicatorWest" Value="WestIndicator" />
     </Style>
-    <Style TargetType="Node" GroupLabel="注释" ValueLabel="包含注释">
-      <Condition Expression="HasCategory('Comment')" />
-      <Setter Property="Background" Value="#FFFFFACD" />
-      <Setter Property="Stroke" Value="#FFE5C365" />
-      <Setter Property="StrokeThickness" Value="1" />
-      <Setter Property="NodeRadius" Value="2" />
-      <Setter Property="MaxWidth" Value="250" />
-    </Style>
   </Styles>
   <Paths>
-    <Path Id="16cad867-fe64-4cfd-9d7e-a4bcfe2708cc.OutputPathUri" Value="file:///E:/Codes/XMT281Scraper/XMT281Scraper/bin/Debug/XMT281Scraper.exe" />
+    <Path Id="16cad867-fe64-4cfd-9d7e-a4bcfe2708cc.OutputPath" Value="E:\Codes\ScraperAll\XMT281Scraper\bin\Debug\XMT281Scraper.exe" />
+    <Path Id="16cad867-fe64-4cfd-9d7e-a4bcfe2708cc.OutputPathUri" Value="file:///E:/Codes/ScraperAll/XMT281Scraper/bin/Debug/XMT281Scraper.exe" />
+    <Path Id="FxReferenceAssemblies" Value="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework" />
     <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+    <Path Id="VsSolutionUri" Value="file:///E:/Codes/ScraperAll" />
   </Paths>
 </DirectedGraph>
