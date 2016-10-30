@@ -13,71 +13,31 @@ namespace XMT281Scraper
 {
     public partial class FrmPSRBuilder : Form
     {
-        public FrmPSRBuilder()
+        public FrmPSRBuilder(HtmlAgilityPack.HtmlDocument document)
         {
             InitializeComponent();
-
+            this.Document = document;
         }
 
+        public Entities.ScraperTask ScrapyTask { get; set; }
         public Entities.Processor Processor { get; set; }
+
         public HtmlAgilityPack.HtmlDocument Document { get; set; }
 
-        private void btn_LoadHtml_Click(object sender, EventArgs e)
-        {
-            tryBulidPSR();
-            this.Document = Tools.DownLoader.GetDocument(Processor.StartURL);
-            MessageBox.Show("LOAD!");
-            refresh();
-        }
         void tryBulidPSR()
         {
             if (this.Processor == null)
             {
                 Processor = new Entities.Processor();
             }
-            if (!string.IsNullOrEmpty(txt_NAME.Text))
-            {
-                Processor.Name = this.txt_NAME.Text.Trim();
-            }
-            else
-            {
-                Processor.Name = DateTime.Now.ToString() + "PSR";
-            }
             if (txt_XPATH.Text!=null)
             {
                 Processor.XPath = txt_XPATH.Text;
-            }
-            if (!string.IsNullOrEmpty(txt_URL.Text))
-            {
-                Processor.StartURL = txt_URL.Text;
             }
             if (txt_CSSSelector.Text!=null)
             {
                 Processor.CssSelector = txt_CSSSelector.Text;
             }
-            //偏移
-            if (rb_Defult_OFFSET.Checked)
-            {
-                Processor.NodeOffset = Entities.EnumNodeOffset.NoOffset;
-            }
-            if (rb_child_OFFSET.Checked)
-            {
-                Processor.NodeOffset = Entities.EnumNodeOffset.Child;
-            }
-            if (rb_parent_OFFSET.Checked)
-            {
-                Processor.NodeOffset = Entities.EnumNodeOffset.Parent;
-            }
-            if (rb_sibingLeft_OFFSET.Checked)
-            {
-                Processor.NodeOffset = Entities.EnumNodeOffset.SinblingLeft;
-            }
-            if (rb_sibingRight_OFFSET.Checked)
-            {
-                Processor.NodeOffset = Entities.EnumNodeOffset.SinblingRight;
-            }
-            //======================END 偏移
-
             Processor.NodeAttribute = txt_ATTRIB.Text;
         }
         void showPSRView()
@@ -90,10 +50,14 @@ namespace XMT281Scraper
             {
                 refreshToUI();
             }
+            else
+            {
+                this.Processor = new Entities.Processor();
+            }
         
         }
 
-        void refresh()
+        void refreshToData()
         {
 
             try
@@ -101,7 +65,7 @@ namespace XMT281Scraper
                 tryBulidPSR();
                 showPSRView();
                 var list = Tools.Scraper.Scrape(this.Document, this.Processor);
-                txt_SourceCode.Text = list.ToStringList();
+                txt_SourceCode.Text = list.ToStringList("========================", true);
                 txt_Json.Text = Tools.Serializer.ShowJson(this.Processor);
             }
             catch (Exception err)
@@ -112,8 +76,6 @@ namespace XMT281Scraper
 
         void refreshToUI()
         {
-            txt_NAME.Text = this.Processor.Name;
-            txt_URL.Text = this.Processor.StartURL;
             txt_XPATH.Text = this.Processor.XPath;
             txt_CSSSelector.Text = this.Processor.CssSelector;
             txt_ATTRIB.Text = this.Processor.NodeAttribute;
@@ -158,7 +120,7 @@ namespace XMT281Scraper
             {
                 this.Processor.RemoveAfter = txt_Remove.Text;
             }
-            refresh();
+            refreshToData();
         }
 
         private void btn_RESET_REMOVER_Click(object sender, EventArgs e)
@@ -167,7 +129,7 @@ namespace XMT281Scraper
             this.Processor.Remover = new List<string>();
             this.Processor.RemoveAfter = "";
             this.Processor.RemoveBefore = "";
-            refresh();
+            refreshToData();
         }
 
         private void rb_Defult_OFFSET_CheckedChanged(object sender, EventArgs e)
@@ -186,7 +148,7 @@ namespace XMT281Scraper
             //        txt_ATTRIB.Text = k.Text;
             //    }
             //}
-            refresh();
+            refreshToData();
             refreshToUI();
         }
 
@@ -194,7 +156,7 @@ namespace XMT281Scraper
         {
             try
             {
-                Tools.Serializer.Serialize(txt_NAME.Text.Trim() + DateTime.Now.ToString("@yyyyMMddHHmmss") + ".psr", this.Processor);
+                Tools.Serializer.Serialize(txt_Filename.Text.Trim() + DateTime.Now.ToString("@yyyyMMddHHmmss") + ".psr", this.Processor);
                 MessageBox.Show("成功");
             }
             catch (Exception err)
@@ -222,7 +184,7 @@ namespace XMT281Scraper
 
         private void btn_TryPSR_Click(object sender, EventArgs e)
         {
-            refresh();
+            refreshToData();
         }
 
         private void rb_none_ATT_Click(object sender, EventArgs e)
@@ -235,7 +197,7 @@ namespace XMT281Scraper
                     txt_ATTRIB.Text = k.Text;
                 }
             }
-            refresh();
+            refreshToData();
             refreshToUI();
         }
 
@@ -265,10 +227,123 @@ namespace XMT281Scraper
             }
         }
 
-        private void btn_LoadHtml2_Click(object sender, EventArgs e)
+
+        private void btn_ClearOffsetNode_Click(object sender, EventArgs e)
+        {
+            Processor.NodeOffset.Clear();
+            refreshToData();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                this.Document = new HtmlAgilityPack.HtmlDocument();
+                this.Document.LoadHtml(System.IO.File.ReadAllText(dlg.FileName));
+            }
+            MessageBox.Show("ok!");
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            //Processor.NodeOffset.Add(Entities.EnumNodeOffset.NoOffset);
+            refreshToData();
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            Processor.NodeOffset.Add(Entities.EnumNodeOffset.SinblingLeft);
+            refreshToData();
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            Processor.NodeOffset.Add(Entities.EnumNodeOffset.SinblingRight);
+            refreshToData();
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            Processor.NodeOffset.Add(Entities.EnumNodeOffset.Parent);
+            refreshToData();
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            Processor.NodeOffset.Add(Entities.EnumNodeOffset.Child);
+            refreshToData();
+        }
+
+        private void btn_DelLast_Click(object sender, EventArgs e)
         {
 
-            this.Document =(this.Owner as Form1).getDocumentFromIE();
+            try
+            {
+                Processor.NodeOffset.RemoveAt(Processor.NodeOffset.Count - 1);
+                refreshToData();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
         }
+
+        private void btn_Tryme_Click(object sender, EventArgs e)
+        {
+            List<object> list = new List<object>()
+            {
+                Entities.EnumNodeOffset.Child,
+                Entities.EnumNodeOffset.SinblingRight
+            };
+
+            Tools.Arrangement<object> arrangment = new Tools.Arrangement<object>(list);
+            
+
+            for (int i = 2; i < 10; i++)
+            {
+                var lili = arrangment.QueueAll(i, null);
+                if (lili.Count> 1000)
+                {
+                    MessageBox.Show("没有探测到，下一次探测要10秒以上，而且希望渺茫！");
+                    return;
+                }
+                foreach (var item in lili)
+                {
+                    Processor.NodeOffset = new List<Entities.EnumNodeOffset>();
+                    foreach (var item2 in item)
+                    {
+                        Processor.NodeOffset.Add((Entities.EnumNodeOffset)item2);
+                    }
+                    //测试是否正确，正确则跳出
+                    try
+                    {
+                        var scrapResultList = Tools.Scraper.Scrape(this.Document, this.Processor);
+                        if (scrapResultList.Count > 0 && scrapResultList[0] == txt_tryme.Text)
+                        {
+                            MessageBox.Show("OK TryME! YEAH!");
+                            refreshToData();
+                            refreshToUI();
+                            return;
+                        }
+                    }
+                    catch 
+                    {
+
+                    }
+
+
+                }
+            }
+            //var lili = arrangment.QueueAll(5);
+            
+            //for (int i = 1; i < 10; i++)
+            //{
+            //    Tools.Arrangement.Queue<Entities.EnumNodeOffset>(list, i, new List<Entities.EnumNodeOffset>(), null);
+            //}
+           
+        }
+
+
     }
 }

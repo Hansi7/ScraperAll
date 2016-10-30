@@ -59,6 +59,6 @@ E:\Codes\ScraperAll\XMT281Scraper\bin\Debug\Newtonsoft.Json.xml
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.csprojResolveAssemblyReference.cache
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.Form1.resources
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmPSRBuilder.resources
-E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmURLBuilder.resources
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.Properties.Resources.resources
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.csproj.GenerateResource.Cache
+E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmTASKBuilder.resources

@@ -17,5 +17,19 @@ namespace XMT281Scraper.Extensions
             }
             return sb.ToString();
         }
+        public static string ToStringList(this List<string> list, string seperate ,bool displayCount)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (displayCount)
+            {
+                sb.AppendLine("共计：" + list.Count.ToString() + "节点");
+            }
+            foreach (var item in list)
+            {
+                sb.AppendLine(item);
+                sb.AppendLine(seperate);
+            }
+            return sb.ToString();
+        }
     }
 }

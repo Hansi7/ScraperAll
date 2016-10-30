@@ -41,7 +41,7 @@ namespace XMT281Scraper
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var dlg = new FrmURLBuilder();
+            var dlg = new FrmTASKBuilder();
             if (urlsList().Count>0)
             {
                 dlg.URLs = urlsList()[0];
@@ -108,7 +108,6 @@ namespace XMT281Scraper
                     }
                     catch (Exception)
                     {
-                        txt_info.AppendText("网址" + item + "无法定位，继续下一个\r\n");
                     }
                 }
                 lb_prograss.Text = (++j).ToString() + "/" + total.ToString();
@@ -119,67 +118,7 @@ namespace XMT281Scraper
             System.Diagnostics.Process.Start(fn);
         }
 
-        private void btn_pasteNavi_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(Clipboard.GetText(TextDataFormat.Text)))
-            {
-                txt_URLS.Text = Clipboard.GetText(TextDataFormat.Text);
-            }
-            
-        }
 
-        private void btn_PSR_GEN_Click(object sender, EventArgs e)
-        {
-            var bu = new FrmPSRBuilder();
-            bu.Owner = this;
-            if (bu.ShowDialog() ==  System.Windows.Forms.DialogResult.OK)
-            {
-                this.ListPsrs.Add(bu.Processor);
-                refreshToUI();
-            }
-        }
-
-        private void btn_ADD_PSR_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Multiselect = true;
-            ofd.Filter = "(*.psr)psr文件|*.psr";
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                foreach (var item in ofd.FileNames)
-                {
-                    var psr = Tools.Serializer.DeSerialize(item);
-                    this.ListPsrs.Add(psr);
-                    if (txt_URLS.Text.Trim() == string.Empty)
-                    {
-                        txt_URLS.Text = (psr.StartURL);
-                        txt_WebbrowserURL.Text = psr.StartURL;
-                    }
-                }
-            }
-            refreshToUI();
-
-        }
-
-        private void refreshToUI()
-        {
-            lb_Psr.Items.Clear();
-            lb_Psr.DisplayMember = "Name";
-            foreach (var item in this.ListPsrs)
-            {
-                lb_Psr.Items.Add(item);
-            }
-        }
-
-        private void btn_Remove_PSR_Click(object sender, EventArgs e)
-        {
-            if (lb_Psr.SelectedItems.Count == 1)
-            {
-               ListPsrs.Remove(lb_Psr.SelectedItem as Entities.Processor);
-            }
-            refreshToUI();
-            
-        }
 
         string outputList(bool save, params List<string>[] list)
         {
@@ -230,23 +169,6 @@ namespace XMT281Scraper
 
         }
 
-        private void lb_Psr_DoubleClick(object sender, EventArgs e)
-        {
-            var psr = lb_Psr.SelectedItem as Entities.Processor;
-            if (psr != null)
-            {
-                var frm = new FrmPSRBuilder();
-                frm.Owner = this;
-                frm.Processor = psr;
-                if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    lb_Psr.Items.Remove(psr);
-                    lb_Psr.Items.Add(frm.Processor);
-                    refreshToUI();
-                }
-
-            }
-        }
 
         private void txt_URLS_TextChanged(object sender, EventArgs e)
         {
@@ -281,7 +203,6 @@ namespace XMT281Scraper
                     Application.DoEvents();
                 }
 
-                txt_info.AppendText("webbrowser_DocumentCompleted\t" + e.Url + "\r\n");
                 loading = false;
                 var urls = urlsList();
                 int total = urls.Count;
@@ -298,7 +219,6 @@ namespace XMT281Scraper
                     }
                     catch (Exception)
                     {
-                        txt_info.AppendText("网址" + webbrowser.Url + "无法定位，继续下一个\r\n");
                     }
                 }
                 lb_prograss.Text = (++j).ToString() + "/" + total.ToString();
@@ -344,7 +264,6 @@ namespace XMT281Scraper
                 }
                 catch (Exception)
                 {
-                    txt_info.AppendText("网址" + webbrowser.Url + "无法定位，继续下一个\r\n");
                 }
             }
             lb_prograss.Text = (++j).ToString() + "/" + total.ToString();
@@ -374,6 +293,19 @@ namespace XMT281Scraper
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
             webbrowser.Size = new Size(webbrowser.Size.Width, this.Size.Height - 200);
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            //var doc = new HtmlAgilityPack.HtmlDocument();
+            //doc.LoadHtml(System.IO.File.ReadAllText("LastLoad2.html"));
+
+            Tools.Arrangement<string> arr = new Tools.Arrangement<string>(new List<string>() { "A", "B" });
+            var lili = arr.QueueAll(10, "");
+
+
+
+
         }
 
 

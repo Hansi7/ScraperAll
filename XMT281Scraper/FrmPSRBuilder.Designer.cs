@@ -30,11 +30,20 @@
         {
             this.txt_PSRViewer = new System.Windows.Forms.TextBox();
             this.gb0 = new System.Windows.Forms.GroupBox();
+            this.btn_Tryme = new System.Windows.Forms.Button();
+            this.btn_DelLast = new System.Windows.Forms.Button();
+            this.btn_ClearOffsetNode = new System.Windows.Forms.Button();
+            this.btn3 = new System.Windows.Forms.Button();
             this.rb_Defult_OFFSET = new System.Windows.Forms.RadioButton();
+            this.btn4 = new System.Windows.Forms.Button();
             this.rb_child_OFFSET = new System.Windows.Forms.RadioButton();
+            this.btn2 = new System.Windows.Forms.Button();
             this.rb_sibingRight_OFFSET = new System.Windows.Forms.RadioButton();
+            this.txt_tryme = new System.Windows.Forms.TextBox();
             this.rb_sibingLeft_OFFSET = new System.Windows.Forms.RadioButton();
+            this.btn1 = new System.Windows.Forms.Button();
             this.rb_parent_OFFSET = new System.Windows.Forms.RadioButton();
+            this.btn0 = new System.Windows.Forms.Button();
             this.gb1 = new System.Windows.Forms.GroupBox();
             this.txt_ATTRIB = new System.Windows.Forms.TextBox();
             this.rb_InnerText_ATT = new System.Windows.Forms.RadioButton();
@@ -53,16 +62,10 @@
             this.rb_Replace = new System.Windows.Forms.RadioButton();
             this.rb_Remove = new System.Windows.Forms.RadioButton();
             this.txt_Remove = new System.Windows.Forms.TextBox();
-            this.txt_NAME = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_XPATH = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_CSSSelector = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_URL = new System.Windows.Forms.TextBox();
-            this.btn_LoadHtml = new System.Windows.Forms.Button();
-            this.btn_LoadHtml2 = new System.Windows.Forms.Button();
             this.txt_SourceCode = new System.Windows.Forms.TextBox();
             this.btn_SavePsr = new System.Windows.Forms.Button();
             this.txt_Json = new System.Windows.Forms.TextBox();
@@ -70,33 +73,86 @@
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_TryPSR = new System.Windows.Forms.Button();
             this.btn_LOADTEXT = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txt_Filename = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gb0.SuspendLayout();
             this.gb1.SuspendLayout();
             this.gb2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_PSRViewer
             // 
-            this.txt_PSRViewer.Location = new System.Drawing.Point(218, 136);
+            this.txt_PSRViewer.Location = new System.Drawing.Point(421, 94);
             this.txt_PSRViewer.Multiline = true;
             this.txt_PSRViewer.Name = "txt_PSRViewer";
             this.txt_PSRViewer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_PSRViewer.Size = new System.Drawing.Size(359, 87);
+            this.txt_PSRViewer.Size = new System.Drawing.Size(359, 219);
             this.txt_PSRViewer.TabIndex = 0;
             // 
             // gb0
             // 
+            this.gb0.Controls.Add(this.btn_Tryme);
+            this.gb0.Controls.Add(this.btn_DelLast);
+            this.gb0.Controls.Add(this.btn_ClearOffsetNode);
+            this.gb0.Controls.Add(this.btn3);
             this.gb0.Controls.Add(this.rb_Defult_OFFSET);
+            this.gb0.Controls.Add(this.btn4);
             this.gb0.Controls.Add(this.rb_child_OFFSET);
+            this.gb0.Controls.Add(this.btn2);
             this.gb0.Controls.Add(this.rb_sibingRight_OFFSET);
+            this.gb0.Controls.Add(this.txt_tryme);
             this.gb0.Controls.Add(this.rb_sibingLeft_OFFSET);
+            this.gb0.Controls.Add(this.btn1);
             this.gb0.Controls.Add(this.rb_parent_OFFSET);
-            this.gb0.Location = new System.Drawing.Point(12, 136);
+            this.gb0.Controls.Add(this.btn0);
+            this.gb0.Location = new System.Drawing.Point(12, 94);
             this.gb0.Name = "gb0";
-            this.gb0.Size = new System.Drawing.Size(200, 87);
+            this.gb0.Size = new System.Drawing.Size(403, 129);
             this.gb0.TabIndex = 20;
             this.gb0.TabStop = false;
             this.gb0.Text = "节点偏移";
+            // 
+            // btn_Tryme
+            // 
+            this.btn_Tryme.Location = new System.Drawing.Point(278, 89);
+            this.btn_Tryme.Name = "btn_Tryme";
+            this.btn_Tryme.Size = new System.Drawing.Size(119, 33);
+            this.btn_Tryme.TabIndex = 47;
+            this.btn_Tryme.Text = "子项探测";
+            this.btn_Tryme.UseVisualStyleBackColor = true;
+            this.btn_Tryme.Click += new System.EventHandler(this.btn_Tryme_Click);
+            // 
+            // btn_DelLast
+            // 
+            this.btn_DelLast.Location = new System.Drawing.Point(133, 14);
+            this.btn_DelLast.Name = "btn_DelLast";
+            this.btn_DelLast.Size = new System.Drawing.Size(61, 48);
+            this.btn_DelLast.TabIndex = 43;
+            this.btn_DelLast.Text = "撤销上次添加";
+            this.btn_DelLast.UseVisualStyleBackColor = true;
+            this.btn_DelLast.Click += new System.EventHandler(this.btn_DelLast_Click);
+            // 
+            // btn_ClearOffsetNode
+            // 
+            this.btn_ClearOffsetNode.Location = new System.Drawing.Point(133, 68);
+            this.btn_ClearOffsetNode.Name = "btn_ClearOffsetNode";
+            this.btn_ClearOffsetNode.Size = new System.Drawing.Size(61, 54);
+            this.btn_ClearOffsetNode.TabIndex = 42;
+            this.btn_ClearOffsetNode.Text = "清空节点偏移";
+            this.btn_ClearOffsetNode.UseVisualStyleBackColor = true;
+            this.btn_ClearOffsetNode.Click += new System.EventHandler(this.btn_ClearOffsetNode_Click);
+            // 
+            // btn3
+            // 
+            this.btn3.Location = new System.Drawing.Point(78, 79);
+            this.btn3.Name = "btn3";
+            this.btn3.Size = new System.Drawing.Size(49, 23);
+            this.btn3.TabIndex = 45;
+            this.btn3.Text = "添加";
+            this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // rb_Defult_OFFSET
             // 
@@ -104,61 +160,108 @@
             this.rb_Defult_OFFSET.Checked = true;
             this.rb_Defult_OFFSET.Location = new System.Drawing.Point(19, 17);
             this.rb_Defult_OFFSET.Name = "rb_Defult_OFFSET";
-            this.rb_Defult_OFFSET.Size = new System.Drawing.Size(35, 16);
+            this.rb_Defult_OFFSET.Size = new System.Drawing.Size(53, 16);
             this.rb_Defult_OFFSET.TabIndex = 19;
             this.rb_Defult_OFFSET.TabStop = true;
-            this.rb_Defult_OFFSET.Text = "无";
+            this.rb_Defult_OFFSET.Text = "无  0";
             this.rb_Defult_OFFSET.UseVisualStyleBackColor = true;
             this.rb_Defult_OFFSET.CheckedChanged += new System.EventHandler(this.rb_Defult_OFFSET_CheckedChanged);
             this.rb_Defult_OFFSET.Click += new System.EventHandler(this.rb_Defult_OFFSET_Click);
             // 
+            // btn4
+            // 
+            this.btn4.Location = new System.Drawing.Point(78, 99);
+            this.btn4.Name = "btn4";
+            this.btn4.Size = new System.Drawing.Size(49, 23);
+            this.btn4.TabIndex = 46;
+            this.btn4.Text = "添加";
+            this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            // 
             // rb_child_OFFSET
             // 
             this.rb_child_OFFSET.AutoSize = true;
-            this.rb_child_OFFSET.Location = new System.Drawing.Point(104, 39);
+            this.rb_child_OFFSET.Location = new System.Drawing.Point(19, 102);
             this.rb_child_OFFSET.Name = "rb_child_OFFSET";
-            this.rb_child_OFFSET.Size = new System.Drawing.Size(35, 16);
+            this.rb_child_OFFSET.Size = new System.Drawing.Size(53, 16);
             this.rb_child_OFFSET.TabIndex = 18;
-            this.rb_child_OFFSET.Text = "子";
+            this.rb_child_OFFSET.Text = "子  4";
             this.rb_child_OFFSET.UseVisualStyleBackColor = true;
             this.rb_child_OFFSET.CheckedChanged += new System.EventHandler(this.rb_Defult_OFFSET_CheckedChanged);
             this.rb_child_OFFSET.Click += new System.EventHandler(this.rb_Defult_OFFSET_Click);
             // 
+            // btn2
+            // 
+            this.btn2.Location = new System.Drawing.Point(78, 58);
+            this.btn2.Name = "btn2";
+            this.btn2.Size = new System.Drawing.Size(49, 23);
+            this.btn2.TabIndex = 44;
+            this.btn2.Text = "添加";
+            this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            // 
             // rb_sibingRight_OFFSET
             // 
             this.rb_sibingRight_OFFSET.AutoSize = true;
-            this.rb_sibingRight_OFFSET.Location = new System.Drawing.Point(104, 61);
+            this.rb_sibingRight_OFFSET.Location = new System.Drawing.Point(19, 61);
             this.rb_sibingRight_OFFSET.Name = "rb_sibingRight_OFFSET";
-            this.rb_sibingRight_OFFSET.Size = new System.Drawing.Size(47, 16);
+            this.rb_sibingRight_OFFSET.Size = new System.Drawing.Size(53, 16);
             this.rb_sibingRight_OFFSET.TabIndex = 17;
-            this.rb_sibingRight_OFFSET.Text = "右舍";
+            this.rb_sibingRight_OFFSET.Text = "右  2";
             this.rb_sibingRight_OFFSET.UseVisualStyleBackColor = true;
             this.rb_sibingRight_OFFSET.CheckedChanged += new System.EventHandler(this.rb_Defult_OFFSET_CheckedChanged);
             this.rb_sibingRight_OFFSET.Click += new System.EventHandler(this.rb_Defult_OFFSET_Click);
             // 
+            // txt_tryme
+            // 
+            this.txt_tryme.Location = new System.Drawing.Point(278, 68);
+            this.txt_tryme.Name = "txt_tryme";
+            this.txt_tryme.Size = new System.Drawing.Size(119, 21);
+            this.txt_tryme.TabIndex = 29;
+            // 
             // rb_sibingLeft_OFFSET
             // 
             this.rb_sibingLeft_OFFSET.AutoSize = true;
-            this.rb_sibingLeft_OFFSET.Location = new System.Drawing.Point(19, 61);
+            this.rb_sibingLeft_OFFSET.Location = new System.Drawing.Point(19, 39);
             this.rb_sibingLeft_OFFSET.Name = "rb_sibingLeft_OFFSET";
-            this.rb_sibingLeft_OFFSET.Size = new System.Drawing.Size(47, 16);
+            this.rb_sibingLeft_OFFSET.Size = new System.Drawing.Size(53, 16);
             this.rb_sibingLeft_OFFSET.TabIndex = 16;
-            this.rb_sibingLeft_OFFSET.Text = "左邻";
+            this.rb_sibingLeft_OFFSET.Text = "左  1";
             this.rb_sibingLeft_OFFSET.UseVisualStyleBackColor = true;
             this.rb_sibingLeft_OFFSET.CheckedChanged += new System.EventHandler(this.rb_Defult_OFFSET_CheckedChanged);
             this.rb_sibingLeft_OFFSET.Click += new System.EventHandler(this.rb_Defult_OFFSET_Click);
             // 
+            // btn1
+            // 
+            this.btn1.Location = new System.Drawing.Point(78, 36);
+            this.btn1.Name = "btn1";
+            this.btn1.Size = new System.Drawing.Size(49, 23);
+            this.btn1.TabIndex = 43;
+            this.btn1.Text = "添加";
+            this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            // 
             // rb_parent_OFFSET
             // 
             this.rb_parent_OFFSET.AutoSize = true;
-            this.rb_parent_OFFSET.Location = new System.Drawing.Point(19, 39);
+            this.rb_parent_OFFSET.Location = new System.Drawing.Point(19, 82);
             this.rb_parent_OFFSET.Name = "rb_parent_OFFSET";
-            this.rb_parent_OFFSET.Size = new System.Drawing.Size(35, 16);
+            this.rb_parent_OFFSET.Size = new System.Drawing.Size(53, 16);
             this.rb_parent_OFFSET.TabIndex = 15;
-            this.rb_parent_OFFSET.Text = "父";
+            this.rb_parent_OFFSET.Text = "父  3";
             this.rb_parent_OFFSET.UseVisualStyleBackColor = true;
             this.rb_parent_OFFSET.CheckedChanged += new System.EventHandler(this.rb_Defult_OFFSET_CheckedChanged);
             this.rb_parent_OFFSET.Click += new System.EventHandler(this.rb_Defult_OFFSET_Click);
+            // 
+            // btn0
+            // 
+            this.btn0.Location = new System.Drawing.Point(78, 14);
+            this.btn0.Name = "btn0";
+            this.btn0.Size = new System.Drawing.Size(49, 23);
+            this.btn0.TabIndex = 42;
+            this.btn0.Text = "添加";
+            this.btn0.UseVisualStyleBackColor = true;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
             // gb1
             // 
@@ -352,26 +455,10 @@
             this.txt_Remove.Size = new System.Drawing.Size(130, 21);
             this.txt_Remove.TabIndex = 21;
             // 
-            // txt_NAME
-            // 
-            this.txt_NAME.Location = new System.Drawing.Point(53, 17);
-            this.txt_NAME.Name = "txt_NAME";
-            this.txt_NAME.Size = new System.Drawing.Size(362, 21);
-            this.txt_NAME.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "名称";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 76);
+            this.label3.Location = new System.Drawing.Point(3, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 24;
@@ -379,15 +466,15 @@
             // 
             // txt_XPATH
             // 
-            this.txt_XPATH.Location = new System.Drawing.Point(53, 73);
+            this.txt_XPATH.Location = new System.Drawing.Point(41, 39);
             this.txt_XPATH.Name = "txt_XPATH";
-            this.txt_XPATH.Size = new System.Drawing.Size(362, 21);
+            this.txt_XPATH.Size = new System.Drawing.Size(159, 21);
             this.txt_XPATH.TabIndex = 25;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 104);
+            this.label4.Location = new System.Drawing.Point(15, 70);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 26;
@@ -395,46 +482,10 @@
             // 
             // txt_CSSSelector
             // 
-            this.txt_CSSSelector.Location = new System.Drawing.Point(53, 101);
+            this.txt_CSSSelector.Location = new System.Drawing.Point(41, 67);
             this.txt_CSSSelector.Name = "txt_CSSSelector";
             this.txt_CSSSelector.Size = new System.Drawing.Size(159, 21);
             this.txt_CSSSelector.TabIndex = 27;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "网址";
-            // 
-            // txt_URL
-            // 
-            this.txt_URL.Location = new System.Drawing.Point(53, 45);
-            this.txt_URL.Name = "txt_URL";
-            this.txt_URL.Size = new System.Drawing.Size(362, 21);
-            this.txt_URL.TabIndex = 29;
-            // 
-            // btn_LoadHtml
-            // 
-            this.btn_LoadHtml.Location = new System.Drawing.Point(421, 20);
-            this.btn_LoadHtml.Name = "btn_LoadHtml";
-            this.btn_LoadHtml.Size = new System.Drawing.Size(75, 68);
-            this.btn_LoadHtml.TabIndex = 30;
-            this.btn_LoadHtml.Text = "使用模拟浏览器模块读取源代码";
-            this.btn_LoadHtml.UseVisualStyleBackColor = true;
-            this.btn_LoadHtml.Click += new System.EventHandler(this.btn_LoadHtml_Click);
-            // 
-            // btn_LoadHtml2
-            // 
-            this.btn_LoadHtml2.Location = new System.Drawing.Point(502, 20);
-            this.btn_LoadHtml2.Name = "btn_LoadHtml2";
-            this.btn_LoadHtml2.Size = new System.Drawing.Size(75, 68);
-            this.btn_LoadHtml2.TabIndex = 31;
-            this.btn_LoadHtml2.Text = "从主界面浏览器中获取源代码";
-            this.btn_LoadHtml2.UseVisualStyleBackColor = true;
-            this.btn_LoadHtml2.Click += new System.EventHandler(this.btn_LoadHtml2_Click);
             // 
             // txt_SourceCode
             // 
@@ -447,7 +498,7 @@
             // 
             // btn_SavePsr
             // 
-            this.btn_SavePsr.Location = new System.Drawing.Point(218, 99);
+            this.btn_SavePsr.Location = new System.Drawing.Point(20, 47);
             this.btn_SavePsr.Name = "btn_SavePsr";
             this.btn_SavePsr.Size = new System.Drawing.Size(44, 23);
             this.btn_SavePsr.TabIndex = 33;
@@ -457,7 +508,7 @@
             // 
             // txt_Json
             // 
-            this.txt_Json.Location = new System.Drawing.Point(218, 229);
+            this.txt_Json.Location = new System.Drawing.Point(421, 317);
             this.txt_Json.Multiline = true;
             this.txt_Json.Name = "txt_Json";
             this.txt_Json.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -466,7 +517,7 @@
             // 
             // btn_LOAD
             // 
-            this.btn_LOAD.Location = new System.Drawing.Point(268, 99);
+            this.btn_LOAD.Location = new System.Drawing.Point(135, 47);
             this.btn_LOAD.Name = "btn_LOAD";
             this.btn_LOAD.Size = new System.Drawing.Size(44, 23);
             this.btn_LOAD.TabIndex = 36;
@@ -476,9 +527,9 @@
             // 
             // btn_OK
             // 
-            this.btn_OK.Location = new System.Drawing.Point(432, 99);
+            this.btn_OK.Location = new System.Drawing.Point(421, 9);
             this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(145, 23);
+            this.btn_OK.Size = new System.Drawing.Size(156, 23);
             this.btn_OK.TabIndex = 37;
             this.btn_OK.Text = "附着在主界面使用";
             this.btn_OK.UseVisualStyleBackColor = true;
@@ -486,7 +537,7 @@
             // 
             // btn_TryPSR
             // 
-            this.btn_TryPSR.Location = new System.Drawing.Point(223, 468);
+            this.btn_TryPSR.Location = new System.Drawing.Point(588, 497);
             this.btn_TryPSR.Name = "btn_TryPSR";
             this.btn_TryPSR.Size = new System.Drawing.Size(77, 23);
             this.btn_TryPSR.TabIndex = 39;
@@ -496,36 +547,60 @@
             // 
             // btn_LOADTEXT
             // 
-            this.btn_LOADTEXT.Location = new System.Drawing.Point(502, 365);
+            this.btn_LOADTEXT.Location = new System.Drawing.Point(608, 454);
             this.btn_LOADTEXT.Name = "btn_LOADTEXT";
-            this.btn_LOADTEXT.Size = new System.Drawing.Size(44, 23);
+            this.btn_LOADTEXT.Size = new System.Drawing.Size(142, 23);
             this.btn_LOADTEXT.TabIndex = 40;
-            this.btn_LOADTEXT.Text = "加载";
+            this.btn_LOADTEXT.Text = "加载此文本为psr";
             this.btn_LOADTEXT.UseVisualStyleBackColor = true;
             this.btn_LOADTEXT.Click += new System.EventHandler(this.btn_LOADTEXT_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(583, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 23);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "读取文本文档";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txt_Filename
+            // 
+            this.txt_Filename.Location = new System.Drawing.Point(20, 20);
+            this.txt_Filename.Name = "txt_Filename";
+            this.txt_Filename.Size = new System.Drawing.Size(159, 21);
+            this.txt_Filename.TabIndex = 42;
+            this.txt_Filename.Text = "InputFileName";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txt_Filename);
+            this.groupBox1.Controls.Add(this.btn_SavePsr);
+            this.groupBox1.Controls.Add(this.btn_LOAD);
+            this.groupBox1.Location = new System.Drawing.Point(588, 665);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 80);
+            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // FrmPSRBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 757);
+            this.ClientSize = new System.Drawing.Size(945, 757);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_LOADTEXT);
             this.Controls.Add(this.btn_TryPSR);
             this.Controls.Add(this.btn_OK);
-            this.Controls.Add(this.btn_LOAD);
             this.Controls.Add(this.txt_Json);
-            this.Controls.Add(this.btn_SavePsr);
             this.Controls.Add(this.txt_SourceCode);
-            this.Controls.Add(this.btn_LoadHtml2);
-            this.Controls.Add(this.btn_LoadHtml);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_URL);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_CSSSelector);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txt_XPATH);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txt_NAME);
             this.Controls.Add(this.gb2);
             this.Controls.Add(this.gb1);
             this.Controls.Add(this.gb0);
@@ -539,6 +614,8 @@
             this.gb1.PerformLayout();
             this.gb2.ResumeLayout(false);
             this.gb2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,17 +641,12 @@
         private System.Windows.Forms.RadioButton rb_Remove;
         private System.Windows.Forms.TextBox txt_Remove;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_NAME;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_XPATH;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_CSSSelector;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_URL;
+        private System.Windows.Forms.TextBox txt_tryme;
         private System.Windows.Forms.Button btn_AddString;
-        private System.Windows.Forms.Button btn_LoadHtml;
-        private System.Windows.Forms.Button btn_LoadHtml2;
         private System.Windows.Forms.TextBox txt_SourceCode;
         private System.Windows.Forms.Button btn_SavePsr;
         private System.Windows.Forms.Button btn_RESET_REMOVER;
@@ -588,5 +660,16 @@
         private System.Windows.Forms.Button btn_TryPSR;
         private System.Windows.Forms.Button btn_Space;
         private System.Windows.Forms.Button btn_LOADTEXT;
+        private System.Windows.Forms.Button btn_ClearOffsetNode;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_DelLast;
+        private System.Windows.Forms.Button btn3;
+        private System.Windows.Forms.Button btn4;
+        private System.Windows.Forms.Button btn2;
+        private System.Windows.Forms.Button btn1;
+        private System.Windows.Forms.Button btn0;
+        private System.Windows.Forms.Button btn_Tryme;
+        private System.Windows.Forms.TextBox txt_Filename;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

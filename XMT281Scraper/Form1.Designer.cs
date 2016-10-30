@@ -31,20 +31,14 @@
             this.txt_URLS = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.webbrowser = new System.Windows.Forms.WebBrowser();
-            this.txt_info = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnTEST = new System.Windows.Forms.Button();
-            this.btn_pasteNavi = new System.Windows.Forms.Button();
-            this.btn_PSR_GEN = new System.Windows.Forms.Button();
-            this.btn_ADD_PSR = new System.Windows.Forms.Button();
-            this.btn_Remove_PSR = new System.Windows.Forms.Button();
             this.lb_prograss = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.btn_ScrapyNoLoading = new System.Windows.Forms.Button();
-            this.lb_Psr = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_WebbrowserURL = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_URLS
@@ -80,24 +74,13 @@
             this.webbrowser.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webbrowser_Navigated);
             this.webbrowser.NewWindow += new System.ComponentModel.CancelEventHandler(this.webbrowser_NewWindow);
             // 
-            // txt_info
-            // 
-            this.txt_info.Location = new System.Drawing.Point(475, 12);
-            this.txt_info.Multiline = true;
-            this.txt_info.Name = "txt_info";
-            this.txt_info.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_info.Size = new System.Drawing.Size(312, 99);
-            this.txt_info.TabIndex = 5;
-            this.txt_info.Text = "这个功能还在测试。不是很稳定";
-            this.txt_info.Visible = false;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(394, 39);
+            this.button2.Location = new System.Drawing.Point(392, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 6;
-            this.button2.Text = "网址生成器";
+            this.button2.Text = "任务生成器";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -111,46 +94,6 @@
             this.btnTEST.UseVisualStyleBackColor = true;
             this.btnTEST.Click += new System.EventHandler(this.btnTEST_Click);
             // 
-            // btn_pasteNavi
-            // 
-            this.btn_pasteNavi.Location = new System.Drawing.Point(394, 12);
-            this.btn_pasteNavi.Name = "btn_pasteNavi";
-            this.btn_pasteNavi.Size = new System.Drawing.Size(41, 25);
-            this.btn_pasteNavi.TabIndex = 9;
-            this.btn_pasteNavi.Text = "粘贴";
-            this.btn_pasteNavi.UseVisualStyleBackColor = true;
-            this.btn_pasteNavi.Click += new System.EventHandler(this.btn_pasteNavi_Click);
-            // 
-            // btn_PSR_GEN
-            // 
-            this.btn_PSR_GEN.Location = new System.Drawing.Point(977, 68);
-            this.btn_PSR_GEN.Name = "btn_PSR_GEN";
-            this.btn_PSR_GEN.Size = new System.Drawing.Size(69, 25);
-            this.btn_PSR_GEN.TabIndex = 10;
-            this.btn_PSR_GEN.Text = "PSR生成器";
-            this.btn_PSR_GEN.UseVisualStyleBackColor = true;
-            this.btn_PSR_GEN.Click += new System.EventHandler(this.btn_PSR_GEN_Click);
-            // 
-            // btn_ADD_PSR
-            // 
-            this.btn_ADD_PSR.Location = new System.Drawing.Point(977, 12);
-            this.btn_ADD_PSR.Name = "btn_ADD_PSR";
-            this.btn_ADD_PSR.Size = new System.Drawing.Size(69, 23);
-            this.btn_ADD_PSR.TabIndex = 12;
-            this.btn_ADD_PSR.Text = "加载PSR";
-            this.btn_ADD_PSR.UseVisualStyleBackColor = true;
-            this.btn_ADD_PSR.Click += new System.EventHandler(this.btn_ADD_PSR_Click);
-            // 
-            // btn_Remove_PSR
-            // 
-            this.btn_Remove_PSR.Location = new System.Drawing.Point(977, 39);
-            this.btn_Remove_PSR.Name = "btn_Remove_PSR";
-            this.btn_Remove_PSR.Size = new System.Drawing.Size(69, 23);
-            this.btn_Remove_PSR.TabIndex = 13;
-            this.btn_Remove_PSR.Text = "删除";
-            this.btn_Remove_PSR.UseVisualStyleBackColor = true;
-            this.btn_Remove_PSR.Click += new System.EventHandler(this.btn_Remove_PSR_Click);
-            // 
             // lb_prograss
             // 
             this.lb_prograss.AutoSize = true;
@@ -159,17 +102,6 @@
             this.lb_prograss.Size = new System.Drawing.Size(41, 12);
             this.lb_prograss.TabIndex = 14;
             this.lb_prograss.Text = "label1";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(489, 39);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 34);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "批量抓取\r\n使用控件浏览器";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btn_ScrapyNoLoading
             // 
@@ -180,16 +112,6 @@
             this.btn_ScrapyNoLoading.Text = "单次提取\r\n当前显示的页面";
             this.btn_ScrapyNoLoading.UseVisualStyleBackColor = true;
             this.btn_ScrapyNoLoading.Click += new System.EventHandler(this.btn_ScrapyNoLoading_Click);
-            // 
-            // lb_Psr
-            // 
-            this.lb_Psr.FormattingEnabled = true;
-            this.lb_Psr.ItemHeight = 12;
-            this.lb_Psr.Location = new System.Drawing.Point(793, 12);
-            this.lb_Psr.Name = "lb_Psr";
-            this.lb_Psr.Size = new System.Drawing.Size(178, 100);
-            this.lb_Psr.TabIndex = 11;
-            this.lb_Psr.DoubleClick += new System.EventHandler(this.lb_Psr_DoubleClick);
             // 
             // button1
             // 
@@ -218,25 +140,29 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "地址：";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(664, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(213, 65);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1094, 483);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_WebbrowserURL);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_ScrapyNoLoading);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.lb_prograss);
-            this.Controls.Add(this.btn_Remove_PSR);
-            this.Controls.Add(this.btn_ADD_PSR);
-            this.Controls.Add(this.lb_Psr);
-            this.Controls.Add(this.btn_PSR_GEN);
-            this.Controls.Add(this.btn_pasteNavi);
             this.Controls.Add(this.btnTEST);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.txt_info);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.txt_URLS);
             this.Controls.Add(this.webbrowser);
@@ -252,21 +178,15 @@
 
         private System.Windows.Forms.TextBox txt_URLS;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.TextBox txt_info;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnTEST;
-        private System.Windows.Forms.Button btn_pasteNavi;
-        private System.Windows.Forms.Button btn_PSR_GEN;
-        private System.Windows.Forms.Button btn_ADD_PSR;
-        private System.Windows.Forms.Button btn_Remove_PSR;
         private System.Windows.Forms.Label lb_prograss;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_ScrapyNoLoading;
-        private System.Windows.Forms.ListBox lb_Psr;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.WebBrowser webbrowser;
         private System.Windows.Forms.TextBox txt_WebbrowserURL;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
     }
 }
 
