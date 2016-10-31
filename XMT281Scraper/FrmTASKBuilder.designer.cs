@@ -45,16 +45,16 @@
             this.txtFrom = new System.Windows.Forms.TextBox();
             this.txt_Output = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_TaskName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_ReadHTML = new System.Windows.Forms.Button();
-            this.tv1 = new System.Windows.Forms.TreeView();
             this.btn_ReadHTML2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btn_NewPSR = new System.Windows.Forms.Button();
-            this.btn_DELPSR = new System.Windows.Forms.Button();
+            this.nud_Current = new System.Windows.Forms.NumericUpDown();
+            this.btn_SaveTask = new System.Windows.Forms.Button();
+            this.btn_ReadTask = new System.Windows.Forms.Button();
+            this.ctrlPsrList1 = new XMT281Scraper.CtrlPsrList();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Current)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -203,12 +203,12 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "任务名称";
             // 
-            // textBox2
+            // txt_TaskName
             // 
-            this.textBox2.Location = new System.Drawing.Point(95, 6);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 12;
+            this.txt_TaskName.Location = new System.Drawing.Point(95, 6);
+            this.txt_TaskName.Name = "txt_TaskName";
+            this.txt_TaskName.Size = new System.Drawing.Size(283, 21);
+            this.txt_TaskName.TabIndex = 12;
             // 
             // label8
             // 
@@ -221,70 +221,76 @@
             // 
             // btn_ReadHTML
             // 
-            this.btn_ReadHTML.Location = new System.Drawing.Point(527, 361);
+            this.btn_ReadHTML.Location = new System.Drawing.Point(268, 361);
             this.btn_ReadHTML.Name = "btn_ReadHTML";
-            this.btn_ReadHTML.Size = new System.Drawing.Size(75, 23);
+            this.btn_ReadHTML.Size = new System.Drawing.Size(149, 23);
             this.btn_ReadHTML.TabIndex = 15;
             this.btn_ReadHTML.Text = "读取网页1";
             this.btn_ReadHTML.UseVisualStyleBackColor = true;
             this.btn_ReadHTML.Click += new System.EventHandler(this.btn_ReadHTML_Click);
             // 
-            // tv1
-            // 
-            this.tv1.Location = new System.Drawing.Point(12, 361);
-            this.tv1.Name = "tv1";
-            this.tv1.Size = new System.Drawing.Size(509, 123);
-            this.tv1.TabIndex = 16;
-            // 
             // btn_ReadHTML2
             // 
-            this.btn_ReadHTML2.Location = new System.Drawing.Point(527, 390);
+            this.btn_ReadHTML2.Location = new System.Drawing.Point(446, 361);
             this.btn_ReadHTML2.Name = "btn_ReadHTML2";
-            this.btn_ReadHTML2.Size = new System.Drawing.Size(75, 23);
+            this.btn_ReadHTML2.Size = new System.Drawing.Size(149, 23);
             this.btn_ReadHTML2.TabIndex = 15;
             this.btn_ReadHTML2.Text = "读取网页2";
             this.btn_ReadHTML2.UseVisualStyleBackColor = true;
             this.btn_ReadHTML2.Click += new System.EventHandler(this.btn_ReadHTML2_Click);
             // 
-            // numericUpDown1
+            // nud_Current
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(95, 34);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 21);
-            this.numericUpDown1.TabIndex = 17;
+            this.nud_Current.Location = new System.Drawing.Point(95, 34);
+            this.nud_Current.Name = "nud_Current";
+            this.nud_Current.Size = new System.Drawing.Size(100, 21);
+            this.nud_Current.TabIndex = 17;
+            this.nud_Current.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // btn_NewPSR
+            // btn_SaveTask
             // 
-            this.btn_NewPSR.Location = new System.Drawing.Point(527, 419);
-            this.btn_NewPSR.Name = "btn_NewPSR";
-            this.btn_NewPSR.Size = new System.Drawing.Size(75, 23);
-            this.btn_NewPSR.TabIndex = 18;
-            this.btn_NewPSR.Text = "新建提取器";
-            this.btn_NewPSR.UseVisualStyleBackColor = true;
-            this.btn_NewPSR.Click += new System.EventHandler(this.btn_NewPSR_Click);
+            this.btn_SaveTask.Location = new System.Drawing.Point(268, 390);
+            this.btn_SaveTask.Name = "btn_SaveTask";
+            this.btn_SaveTask.Size = new System.Drawing.Size(149, 23);
+            this.btn_SaveTask.TabIndex = 19;
+            this.btn_SaveTask.Text = "保存任务";
+            this.btn_SaveTask.UseVisualStyleBackColor = true;
+            this.btn_SaveTask.Click += new System.EventHandler(this.btn_SaveTask_Click);
             // 
-            // btn_DELPSR
+            // btn_ReadTask
             // 
-            this.btn_DELPSR.Location = new System.Drawing.Point(527, 448);
-            this.btn_DELPSR.Name = "btn_DELPSR";
-            this.btn_DELPSR.Size = new System.Drawing.Size(75, 23);
-            this.btn_DELPSR.TabIndex = 19;
-            this.btn_DELPSR.Text = "删除提取器";
-            this.btn_DELPSR.UseVisualStyleBackColor = true;
-            this.btn_DELPSR.Click += new System.EventHandler(this.btn_DELPSR_Click);
+            this.btn_ReadTask.Location = new System.Drawing.Point(446, 390);
+            this.btn_ReadTask.Name = "btn_ReadTask";
+            this.btn_ReadTask.Size = new System.Drawing.Size(149, 23);
+            this.btn_ReadTask.TabIndex = 20;
+            this.btn_ReadTask.Text = "读取任务";
+            this.btn_ReadTask.UseVisualStyleBackColor = true;
+            // 
+            // ctrlPsrList1
+            // 
+            this.ctrlPsrList1.Document = null;
+            this.ctrlPsrList1.Location = new System.Drawing.Point(12, 361);
+            this.ctrlPsrList1.Name = "ctrlPsrList1";
+            this.ctrlPsrList1.Size = new System.Drawing.Size(250, 150);
+            this.ctrlPsrList1.TabIndex = 18;
+            this.ctrlPsrList1.Load += new System.EventHandler(this.ctrlPsrList1_Load);
             // 
             // FrmTASKBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(614, 491);
-            this.Controls.Add(this.btn_DELPSR);
-            this.Controls.Add(this.btn_NewPSR);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.tv1);
+            this.ClientSize = new System.Drawing.Size(614, 521);
+            this.Controls.Add(this.btn_ReadTask);
+            this.Controls.Add(this.btn_SaveTask);
+            this.Controls.Add(this.ctrlPsrList1);
+            this.Controls.Add(this.nud_Current);
             this.Controls.Add(this.btn_ReadHTML2);
             this.Controls.Add(this.btn_ReadHTML);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_TaskName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btn_inserStar);
@@ -309,7 +315,7 @@
             this.Text = "任务生成器";
             this.Load += new System.EventHandler(this.FrmURLBuilder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_ch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Current)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,13 +339,13 @@
         private System.Windows.Forms.TextBox txtFrom;
         private System.Windows.Forms.TextBox txt_Output;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_TaskName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_ReadHTML;
-        private System.Windows.Forms.TreeView tv1;
         private System.Windows.Forms.Button btn_ReadHTML2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button btn_NewPSR;
-        private System.Windows.Forms.Button btn_DELPSR;
+        private System.Windows.Forms.NumericUpDown nud_Current;
+        private CtrlPsrList ctrlPsrList1;
+        private System.Windows.Forms.Button btn_SaveTask;
+        private System.Windows.Forms.Button btn_ReadTask;
     }
 }

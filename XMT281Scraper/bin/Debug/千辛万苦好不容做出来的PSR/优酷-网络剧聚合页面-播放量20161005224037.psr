@@ -1,1 +1,0 @@
-{"Name":"优酷-网络剧聚合页面-播放量","StartURL":"http://www.youku.com/show_page/id_zd1d065eafb1411e2a705.html?spm=a2h0j.8191423.subscription_wrap.DD~A","XPath":"","CssSelector":"span.play","NodeOffset":0,"NodeAttribute":"InnerText","Remover":["总播放:",","],"Replacer":{},"RemoveBefore":null,"RemoveAfter":null}

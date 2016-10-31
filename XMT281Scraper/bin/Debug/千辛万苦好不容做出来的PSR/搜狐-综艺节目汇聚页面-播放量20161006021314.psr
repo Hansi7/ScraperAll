@@ -1,1 +1,0 @@
-{"Name":"搜狐-综艺节目汇聚页面-播放量","StartURL":"http://tv.sohu.com/item/OTcxNDY4.html","XPath":"//div[@class='infoR']/ul[@class='cfix'][last()]","CssSelector":"","NodeOffset":0,"NodeAttribute":"InnerText","Remover":["\r","\n","\t"," "],"Replacer":{"总播放：":"   ","亿":"*10000"},"RemoveBefore":"","RemoveAfter":"昨日新增播放"}

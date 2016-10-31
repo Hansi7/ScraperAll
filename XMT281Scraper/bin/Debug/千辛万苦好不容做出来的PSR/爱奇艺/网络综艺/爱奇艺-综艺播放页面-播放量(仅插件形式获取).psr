@@ -1,1 +1,0 @@
-{"Name":"爱奇艺-综艺播放页面-播放量666","StartURL":"http://www.iqiyi.com/v_19rr9fi10w.html","XPath":"//div[@data-scrollcontent='sourcelist']//p[@class='playcount']","CssSelector":"","NodeOffset":0,"NodeAttribute":"InnerText","Remover":[],"Replacer":{},"RemoveBefore":"","RemoveAfter":""}

@@ -17,19 +17,7 @@ namespace XMT281Scraper.Entities
             StarLong = 1;
         }
         public string Name { get; set; }
-        public int Current {
-            get { return Current; }
-            set
-            {
-                if (value>=StarStart && value<= StarEnd)
-                {
-                    Current = value;
-                }
-                else
-                {
-                    throw new ArgumentException("无法赋值到Current，Current应该在规定范围内,请先行更改Start和End的值");
-                }
-            } }
+        public int Current {get;set;}
         public string StartURL { get; set; }
         public int StarStart { get; set; }
         public int StarEnd { get; set; }
@@ -37,6 +25,9 @@ namespace XMT281Scraper.Entities
         /// 通配符长度，一般为1~3，默认为1
         /// </summary>
         public int StarLong { get; set; }
+        /// <summary>
+        /// 网址的增长值，如果希望通配符的位置是10,20,30，那么Gap为10
+        /// </summary>
         public int StarGap { get; set; }
         public string CurrentURL
         {
@@ -63,6 +54,6 @@ namespace XMT281Scraper.Entities
                 }
             }
         }
-        public Processor Processor { get; set; }
+        public List<Processor> Processor { get; set; }
     }
 }

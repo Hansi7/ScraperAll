@@ -172,8 +172,9 @@ namespace XMT281Scraper
             ofd.Filter = "(*.psr)psr文件|*.psr";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                this.Processor = Tools.Serializer.DeSerialize(ofd.FileName);
+                this.Processor = Tools.Serializer.DeSerializePSR(ofd.FileName);
                 refreshToUI();
+                refreshToData();
             }
         }
 
@@ -218,7 +219,7 @@ namespace XMT281Scraper
         {
             try
             {
-                this.Processor = Tools.Serializer.DeSerializeFromJsonString(txt_Json.Text);
+                this.Processor = Tools.Serializer.DeSerializeFromJsonStringPSR(txt_Json.Text);
                 refreshToUI();
             }
             catch (Exception err)
@@ -243,6 +244,7 @@ namespace XMT281Scraper
                 this.Document.LoadHtml(System.IO.File.ReadAllText(dlg.FileName));
             }
             MessageBox.Show("ok!");
+            refreshToData();
         }
 
         private void btn0_Click(object sender, EventArgs e)
@@ -342,6 +344,26 @@ namespace XMT281Scraper
             //    Tools.Arrangement.Queue<Entities.EnumNodeOffset>(list, i, new List<Entities.EnumNodeOffset>(), null);
             //}
            
+        }
+
+        private void rb_none_ATT_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_InnerText_ATT_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_title_ATT_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rb_href_ATT_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
 

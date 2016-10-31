@@ -31,26 +31,14 @@ namespace XMT281Scraper
             webbrowser.Navigate(txt_WebbrowserURL.Text.Trim());
         }
 
-        private List<string> urlsList()
-        {
-            var strArr = txt_URLS.Text.Split(new string[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            return strArr.ToList<String>();
-        }
-        bool loading = false;
-        
 
         private void button2_Click(object sender, EventArgs e)
         {
             var dlg = new FrmTASKBuilder();
-            if (urlsList().Count>0)
-            {
-                dlg.URLs = urlsList()[0];
-            }
 
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 Clipboard.SetText(dlg.URLs);
-                txt_URLS.Text = dlg.URLs;
             }
         }
 
@@ -73,28 +61,10 @@ namespace XMT281Scraper
         List<List<string>> llist;
         private void btnTEST_Click(object sender, EventArgs e)
         {
-            //var urls = urlsList();
-            //int total = urls.Count;
-            //int j = 0;
-
-            //foreach (var item in urls)
-            //{
-            //    var doc = Tools.DownLoader.GetDocument(item);
-            //    var kkl = Tools.Scraper.Scrape(doc, ListPsrs);
-            //    if (kkl is DataTable)
-            //    {
-            //        Tools.ExcelOutput.DataTableToExcel(kkl, "hello.xlsx");
-            //        MessageBox.Show("Test");
-            //    }
-
-            //}
-            //return;
-
-
             StringBuilder sbb = new StringBuilder();
-            var urls = urlsList();
+            var urls = new List<string>();
             int total = urls.Count;
-            int j = 0;
+
             foreach (var item in urls)
             {
                 llist = new List<List<string>>();
@@ -110,7 +80,6 @@ namespace XMT281Scraper
                     {
                     }
                 }
-                lb_prograss.Text = (++j).ToString() + "/" + total.ToString();
                 sbb.Append(outputList(false, llist.ToArray()));
             }
             var fn = "RESULT " + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".txt";
@@ -170,61 +139,10 @@ namespace XMT281Scraper
         }
 
 
-        private void txt_URLS_TextChanged(object sender, EventArgs e)
-        {
-            lb_prograss.Text = "0/" + urlsList().Count.ToString();
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            sbWebOutput = new StringBuilder();
-            this.webbrowser.DocumentCompleted += webbrowser_DocumentCompleted;
-            var urls = urlsList();
-            foreach (var item in urls)
-            {
-                loading = true;
-                this.webbrowser.Navigate(item);
-                while (loading)
-                {
-                    Application.DoEvents();
-                }
-                Thread.Sleep(3000);
-            }
-        }
+
         StringBuilder sbWebOutput = new StringBuilder();
-        void webbrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            if (e.Url.ToString() == "about:blank" || !urlsList().Contains(e.Url.ToString()))
-            { return; }
-            else
-            {
-                for (int i = 0; i < 10000; i++)
-                {
-                    Application.DoEvents();
-                }
-
-                loading = false;
-                var urls = urlsList();
-                int total = urls.Count;
-                int j = 0;
-
-                llist = new List<List<string>>();
-                var doc = getDocumentFromIE();
-                foreach (var itempsr in ListPsrs)
-                {
-                    try
-                    {
-                        var l1 = Tools.Scraper.Scrape(doc, itempsr);
-                        llist.Add(l1);
-                    }
-                    catch (Exception)
-                    {
-                    }
-                }
-                lb_prograss.Text = (++j).ToString() + "/" + total.ToString();
-                sbWebOutput.Append(outputList(false, llist.ToArray()));
-            }
-        }
+       
         void Open()
         {
             var fn = "RESULT " + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".txt";
@@ -247,12 +165,7 @@ namespace XMT281Scraper
         private void btn_ScrapyNoLoading_Click(object sender, EventArgs e)
         {
             //txt_info.AppendText("webbrowser_DocumentCompleted\t" + e.Url + "\r\n");
-            loading = false;
             StringBuilder sbb = new StringBuilder();
-            var urls = urlsList();
-            int total = urls.Count;
-            int j = 0;
-
             llist = new List<List<string>>();
             var doc = getDocumentFromIE();
             foreach (var itempsr in ListPsrs)
@@ -266,9 +179,7 @@ namespace XMT281Scraper
                 {
                 }
             }
-            lb_prograss.Text = (++j).ToString() + "/" + total.ToString();
             sbb.Append(outputList(false, llist.ToArray()));
-
             var fn = "RESULT " + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".txt";
             System.IO.File.WriteAllText(fn, sbb.ToString());
             System.Diagnostics.Process.Start(fn);
@@ -292,21 +203,10 @@ namespace XMT281Scraper
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
+            webbrowser.Visible = true;
             webbrowser.Size = new Size(webbrowser.Size.Width, this.Size.Height - 200);
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            //var doc = new HtmlAgilityPack.HtmlDocument();
-            //doc.LoadHtml(System.IO.File.ReadAllText("LastLoad2.html"));
-
-            Tools.Arrangement<string> arr = new Tools.Arrangement<string>(new List<string>() { "A", "B" });
-            var lili = arr.QueueAll(10, "");
-
-
-
-
-        }
 
 
 

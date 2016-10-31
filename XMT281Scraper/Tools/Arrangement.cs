@@ -48,7 +48,7 @@ namespace XMT281Scraper.Tools
         /// <param name="preObject">输入一个空的List</param>
         /// <param name="ouput">请输入一个空的List，并保留这个List的引用，执行完毕后它将是执行结果</param>
         /// <param name="seperater">是否在列表中包含一个特殊对象，用来分组每次产生队列的结果，如果为False，需要手动分组，每n个分组，n是队列长度queueLong</param>
-        private static void Queue<T>(List<T> list, int queueLong, List<T> preObject, List<T> ouput,T seperater) 
+        private void Queue<T>(List<T> list, int queueLong, List<T> preObject, List<T> ouput,T seperater) 
         {
             //StringBuilder sb = new StringBuilder();
             if (queueLong == 1)

@@ -1,1 +1,0 @@
-{"Name":"搜狐-微电影单页-播放量","StartURL":"http://tv.sohu.com/20160612/n453999963.shtml","XPath":"//dt[@class='mB5']","CssSelector":"","NodeOffset":3,"NodeAttribute":"InnerText","Remover":["\r","\n","\t"," ","万"],"Replacer":{"总播放量：":"   "},"RemoveBefore":"   ","RemoveAfter":""}

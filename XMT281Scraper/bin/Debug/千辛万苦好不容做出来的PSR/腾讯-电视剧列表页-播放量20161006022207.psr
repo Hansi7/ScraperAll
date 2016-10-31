@@ -1,1 +1,0 @@
-{"Name":"腾讯-电视剧列表页-播放量","StartURL":"http://v.qq.com/x/teleplaylist/?sort=4&offset=0&itype=843&iarea=-1","XPath":"","CssSelector":"span.figure_info_brand","NodeOffset":0,"NodeAttribute":"InnerText","Remover":["\r","\n","\t"," ","万"],"Replacer":{"亿":"*10000"},"RemoveBefore":null,"RemoveAfter":null}

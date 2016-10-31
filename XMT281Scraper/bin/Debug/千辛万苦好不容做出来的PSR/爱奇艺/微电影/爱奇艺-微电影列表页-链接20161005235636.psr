@@ -1,1 +1,0 @@
-{"Name":"爱奇艺-微电影-链接","StartURL":"http://list.iqiyi.com/www/16/-------------11-1-2-iqiyi-1-.html","XPath":"//p[@class='site-piclist_info_title']//a","CssSelector":"","NodeOffset":0,"NodeAttribute":"href","Remover":[],"Replacer":{},"RemoveBefore":null,"RemoveAfter":"#"}
