@@ -64,6 +64,10 @@ namespace XMT281Scraper
             {
                 tryBulidPSR();
                 showPSRView();
+                if (this.Document==null)
+                {
+                    throw new Exception("还没有加载文档，暂时无法提取");
+                }
                 var list = Tools.Scraper.Scrape(this.Document, this.Processor);
                 txt_SourceCode.Text = list.ToStringList("========================", true);
                 txt_Json.Text = Tools.Serializer.ShowJson(this.Processor);
@@ -186,6 +190,7 @@ namespace XMT281Scraper
         private void btn_TryPSR_Click(object sender, EventArgs e)
         {
             refreshToData();
+            refreshToUI();
         }
 
         private void rb_none_ATT_Click(object sender, EventArgs e)

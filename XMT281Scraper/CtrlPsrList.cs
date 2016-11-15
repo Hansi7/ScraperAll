@@ -48,7 +48,7 @@ namespace XMT281Scraper
                 dlg.Processor = lb_psrs.SelectedItem as Entities.Processor;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    lb_psrs.Items.Remove(lb_psrs.SelectedIndex);
+                    lb_psrs.Items.RemoveAt(lb_psrs.SelectedIndex);
                     lb_psrs.Items.Insert(selectedItemIndex, dlg.Processor);
                 }
             }

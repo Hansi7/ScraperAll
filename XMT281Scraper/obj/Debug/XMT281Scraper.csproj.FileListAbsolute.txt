@@ -85,3 +85,4 @@ D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmTASKBuilder.resources
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.Properties.Resources.resources
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.csproj.GenerateResource.Cache
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.CtrlPsrList.resources
+E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.CtrlPsrList.resources

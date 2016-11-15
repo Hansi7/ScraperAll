@@ -61,30 +61,55 @@ namespace XMT281Scraper
         List<List<string>> llist;
         private void btnTEST_Click(object sender, EventArgs e)
         {
-            StringBuilder sbb = new StringBuilder();
-            var urls = new List<string>();
-            int total = urls.Count;
-
-            foreach (var item in urls)
+            if (ctrlPsrList1.Processors.Count == 0)
             {
-                llist = new List<List<string>>();
-                var doc = Tools.DownLoader.GetDocument(item);
-                foreach (var itempsr in ListPsrs)
-                {
-                    try
-                    {
-                        var l1 = Tools.Scraper.Scrape(doc, itempsr);
-                        llist.Add(l1);
-                    }
-                    catch (Exception)
-                    {
-                    }
-                }
-                sbb.Append(outputList(false, llist.ToArray()));
+                MessageBox.Show("还没有提取器，无法提取。请新建提取器");
+                return;
             }
+            StringBuilder sbb = new StringBuilder();
+            llist = new List<List<string>>();
+            var doc = Tools.DownLoader.GetDocument(this.txt_WebbrowserURL.Text);
+            foreach (var itempsr in ctrlPsrList1.Processors)
+            {
+                try
+                {
+                    var l1 = Tools.Scraper.Scrape(doc, itempsr);
+                    llist.Add(l1);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+            sbb.Append(outputList(false, llist.ToArray()));
             var fn = "RESULT " + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".txt";
             System.IO.File.WriteAllText(fn, sbb.ToString());
             System.Diagnostics.Process.Start(fn);
+
+            //StringBuilder sbb = new StringBuilder();
+            //var urls = new List<string>();
+            //int total = urls.Count;
+
+            //foreach (var item in urls)
+            //{
+            //    llist = new List<List<string>>();
+            //    var doc = Tools.DownLoader.GetDocument(item);
+            //    foreach (var itempsr in ListPsrs)
+            //    {
+            //        try
+            //        {
+            //            var l1 = Tools.Scraper.Scrape(doc, itempsr);
+            //            llist.Add(l1);
+            //        }
+            //        catch (Exception)
+            //        {
+            //        }
+            //    }
+            //    sbb.Append(outputList(false, llist.ToArray()));
+            //}
+            //var fn = "RESULT " + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".txt";
+            //System.IO.File.WriteAllText(fn, sbb.ToString());
+            //System.Diagnostics.Process.Start(fn);
         }
 
 
@@ -165,10 +190,15 @@ namespace XMT281Scraper
         private void btn_ScrapyNoLoading_Click(object sender, EventArgs e)
         {
             //txt_info.AppendText("webbrowser_DocumentCompleted\t" + e.Url + "\r\n");
+            if (ctrlPsrList1.Processors.Count == 0)
+            {
+                MessageBox.Show("还没有提取器，无法提取。请新建提取器");
+                return;
+            }
             StringBuilder sbb = new StringBuilder();
             llist = new List<List<string>>();
             var doc = getDocumentFromIE();
-            foreach (var itempsr in ListPsrs)
+            foreach (var itempsr in ctrlPsrList1.Processors)
             {
                 try
                 {
@@ -177,6 +207,7 @@ namespace XMT281Scraper
                 }
                 catch (Exception)
                 {
+
                 }
             }
             sbb.Append(outputList(false, llist.ToArray()));
@@ -205,6 +236,15 @@ namespace XMT281Scraper
         {
             webbrowser.Visible = true;
             webbrowser.Size = new Size(webbrowser.Size.Width, this.Size.Height - 200);
+        }
+
+        private void txt_WebbrowserURL_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                btnStart_Click(null, null);//执行转到按钮
+                btnStart.Focus(); //丢失焦点//
+            }
         }
 
 

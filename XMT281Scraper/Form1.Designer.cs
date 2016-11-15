@@ -52,7 +52,7 @@
             // webbrowser
             // 
             this.webbrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.webbrowser.Location = new System.Drawing.Point(0, 135);
+            this.webbrowser.Location = new System.Drawing.Point(0, 167);
             this.webbrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webbrowser.Name = "webbrowser";
             this.webbrowser.ScriptErrorsSuppressed = true;
@@ -109,6 +109,7 @@
             this.txt_WebbrowserURL.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_WebbrowserURL.Size = new System.Drawing.Size(439, 21);
             this.txt_WebbrowserURL.TabIndex = 17;
+            this.txt_WebbrowserURL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_WebbrowserURL_KeyDown);
             // 
             // label1
             // 
@@ -131,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 155);
+            this.ClientSize = new System.Drawing.Size(844, 187);
             this.Controls.Add(this.ctrlPsrList1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_WebbrowserURL);
