@@ -36,7 +36,7 @@ namespace XMT281Scraper.Entities
                 var st = StartURL.IndexOf("(*)");
                 if (st == -1)
                 {
-                    return "未能生成URLs,未找到通配符(*)";
+                    return StartURL;
                 }
                 else
                 {

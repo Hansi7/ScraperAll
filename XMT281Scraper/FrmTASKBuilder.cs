@@ -102,8 +102,8 @@ namespace XMT281Scraper
             try
             {
                 Entities.ScraperTask task = GenTask();
-                Tools.Serializer.Serialize("text.txt", task);
-                MessageBox.Show("已经保存");
+                Tools.Serializer.Serialize("TASK@" + DateTime.Now.ToString("yyyymmdd hhMMss")  +  ".tsk", task);
+                MessageBox.Show("保存成功");
             }
             catch (Exception er)
             {

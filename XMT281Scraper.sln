@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMT281Scraper", "XMT281Scraper\XMT281Scraper.csproj", "{16CAD867-FE64-4CFD-9D7E-A4BCFE2708CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeWorker", "ScrapeWorker\ScrapeWorker.csproj", "{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,10 @@ Global
 		{16CAD867-FE64-4CFD-9D7E-A4BCFE2708CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16CAD867-FE64-4CFD-9D7E-A4BCFE2708CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16CAD867-FE64-4CFD-9D7E-A4BCFE2708CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

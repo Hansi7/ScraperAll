@@ -10,6 +10,13 @@ namespace XMT281Scraper.Tools
 {
     public static class Scraper
     {
+        /// <summary>
+        /// 主要提取函数，从网页文档中提取所需要的信息
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <param name="psr"></param>
+        /// <param name="usingCss"></param>
+        /// <returns></returns>
         public static List<string> Scrape(HtmlAgilityPack.HtmlDocument doc, Entities.Processor psr, bool usingCss = false)
         {
             List<string> list = new List<string>();

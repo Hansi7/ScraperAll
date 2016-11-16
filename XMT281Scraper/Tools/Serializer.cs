@@ -11,6 +11,8 @@ namespace XMT281Scraper.Tools
     public static class Serializer
     {
         static JsonSerializer serializer = new JsonSerializer();
+        #region PsrJson
+
         public static void Serialize(string filename, Entities.Processor psr)
         {
             using (StreamWriter sw = new StreamWriter(filename))
@@ -45,35 +47,6 @@ namespace XMT281Scraper.Tools
         {
             return ConvertJsonStringFromPSR(psr);
         }
-        /// <summary>
-        /// 格式化字符串
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
-        public static string ConvertJsonString(string str)
-        {
-            //格式化json字符串
-            JsonSerializer serializer = new JsonSerializer();
-            TextReader tr = new StringReader(str);
-            JsonTextReader jtr = new JsonTextReader(tr);
-            object obj = serializer.Deserialize(jtr);
-            if (obj != null)
-            {
-                StringWriter textWriter = new StringWriter();
-                JsonTextWriter jsonWriter = new JsonTextWriter(textWriter)
-                {
-                    Formatting = Formatting.Indented,
-                    Indentation = 4,
-                    IndentChar = ' '
-                };
-                serializer.Serialize(jsonWriter, obj);
-                return textWriter.ToString();
-            }
-            else
-            {
-                return str;
-            }          
-        }
         public static string ConvertJsonStringFromPSR(Entities.Processor obj)
         {
             //格式化json字符串
@@ -98,6 +71,9 @@ namespace XMT281Scraper.Tools
                 return "Error!转换Json错误，对象为空";
             }
         }
+
+
+        #endregion
 
         #region TaskJson
         public static void Serialize(string filename, Entities.ScraperTask tsk)
@@ -155,6 +131,40 @@ namespace XMT281Scraper.Tools
             else
             {
                 return "Error!转换Json错误，对象为空";
+            }
+        }
+        #endregion
+
+        #region public static string ConvertJsonString(string str)
+
+
+        /// <summary>
+        /// 格式化字符串
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string ConvertJsonString(string str)
+        {
+            //格式化json字符串
+            JsonSerializer serializer = new JsonSerializer();
+            TextReader tr = new StringReader(str);
+            JsonTextReader jtr = new JsonTextReader(tr);
+            object obj = serializer.Deserialize(jtr);
+            if (obj != null)
+            {
+                StringWriter textWriter = new StringWriter();
+                JsonTextWriter jsonWriter = new JsonTextWriter(textWriter)
+                {
+                    Formatting = Formatting.Indented,
+                    Indentation = 4,
+                    IndentChar = ' '
+                };
+                serializer.Serialize(jsonWriter, obj);
+                return textWriter.ToString();
+            }
+            else
+            {
+                return str;
             }
         }
         #endregion

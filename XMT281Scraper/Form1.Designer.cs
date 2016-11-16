@@ -52,7 +52,7 @@
             // webbrowser
             // 
             this.webbrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.webbrowser.Location = new System.Drawing.Point(0, 167);
+            this.webbrowser.Location = new System.Drawing.Point(0, 160);
             this.webbrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webbrowser.Name = "webbrowser";
             this.webbrowser.ScriptErrorsSuppressed = true;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 187);
+            this.ClientSize = new System.Drawing.Size(844, 180);
             this.Controls.Add(this.ctrlPsrList1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_WebbrowserURL);
