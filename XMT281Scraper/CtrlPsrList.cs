@@ -17,6 +17,8 @@ namespace XMT281Scraper
             InitializeComponent();
         }
         
+
+        
         public List<Entities.Processor> Processors
         {
             get
@@ -27,6 +29,17 @@ namespace XMT281Scraper
                     processors.Add(item  as Entities.Processor);
                 }
                 return processors;
+            }
+            set
+            {
+                if (value!=null)
+                {
+                    this.lb_psrs.Items.Clear();
+                }
+                foreach (var item in value)
+                {
+                    this.lb_psrs.Items.Add(item);
+                }
             }
         }
         public HtmlAgilityPack.HtmlDocument Document { get; set; }

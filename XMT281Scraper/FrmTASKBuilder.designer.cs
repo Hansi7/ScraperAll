@@ -52,9 +52,16 @@
             this.nud_Current = new System.Windows.Forms.NumericUpDown();
             this.btn_SaveTask = new System.Windows.Forms.Button();
             this.btn_ReadTask = new System.Windows.Forms.Button();
+            this.btn_StartWorker = new System.Windows.Forms.Button();
             this.ctrlPsrList1 = new XMT281Scraper.CtrlPsrList();
+            this.txt_EA = new System.Windows.Forms.TextBox();
+            this.txt_EB = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Current)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -166,7 +173,7 @@
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(40, 21);
             this.txtTo.TabIndex = 2;
-            this.txtTo.Text = "0";
+            this.txtTo.Text = "1";
             // 
             // txtPlong
             // 
@@ -182,7 +189,7 @@
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(40, 21);
             this.txtFrom.TabIndex = 1;
-            this.txtFrom.Text = "0";
+            this.txtFrom.Text = "1";
             // 
             // txt_Output
             // 
@@ -269,6 +276,17 @@
             this.btn_ReadTask.TabIndex = 20;
             this.btn_ReadTask.Text = "读取任务";
             this.btn_ReadTask.UseVisualStyleBackColor = true;
+            this.btn_ReadTask.Click += new System.EventHandler(this.btn_ReadTask_Click);
+            // 
+            // btn_StartWorker
+            // 
+            this.btn_StartWorker.Location = new System.Drawing.Point(238, 20);
+            this.btn_StartWorker.Name = "btn_StartWorker";
+            this.btn_StartWorker.Size = new System.Drawing.Size(83, 48);
+            this.btn_StartWorker.TabIndex = 21;
+            this.btn_StartWorker.Text = "开始工作";
+            this.btn_StartWorker.UseVisualStyleBackColor = true;
+            this.btn_StartWorker.Click += new System.EventHandler(this.btn_StartWorker_Click);
             // 
             // ctrlPsrList1
             // 
@@ -279,11 +297,60 @@
             this.ctrlPsrList1.TabIndex = 18;
             this.ctrlPsrList1.Load += new System.EventHandler(this.ctrlPsrList1_Load);
             // 
+            // txt_EA
+            // 
+            this.txt_EA.Location = new System.Drawing.Point(139, 20);
+            this.txt_EA.Name = "txt_EA";
+            this.txt_EA.Size = new System.Drawing.Size(93, 21);
+            this.txt_EA.TabIndex = 22;
+            this.txt_EA.Text = "未定义1";
+            // 
+            // txt_EB
+            // 
+            this.txt_EB.Location = new System.Drawing.Point(139, 47);
+            this.txt_EB.Name = "txt_EB";
+            this.txt_EB.Size = new System.Drawing.Size(93, 21);
+            this.txt_EB.TabIndex = 23;
+            this.txt_EB.Text = "未定义2";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.btn_StartWorker);
+            this.groupBox1.Controls.Add(this.txt_EA);
+            this.groupBox1.Controls.Add(this.txt_EB);
+            this.groupBox1.Location = new System.Drawing.Point(268, 432);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(327, 79);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "开始抓取";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(20, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(107, 12);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "为此任务附加备注1";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(20, 50);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(107, 12);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "为此任务附加备注2";
+            // 
             // FrmTASKBuilder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 521);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_ReadTask);
             this.Controls.Add(this.btn_SaveTask);
             this.Controls.Add(this.ctrlPsrList1);
@@ -316,6 +383,8 @@
             this.Load += new System.EventHandler(this.FrmURLBuilder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_ch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Current)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,5 +416,11 @@
         private CtrlPsrList ctrlPsrList1;
         private System.Windows.Forms.Button btn_SaveTask;
         private System.Windows.Forms.Button btn_ReadTask;
+        private System.Windows.Forms.Button btn_StartWorker;
+        private System.Windows.Forms.TextBox txt_EA;
+        private System.Windows.Forms.TextBox txt_EB;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }

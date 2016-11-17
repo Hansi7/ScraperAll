@@ -319,6 +319,7 @@
             // btn_TryPSR
             // 
             this.btn_TryPSR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_TryPSR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_TryPSR.Location = new System.Drawing.Point(21, 121);
             this.btn_TryPSR.Name = "btn_TryPSR";
             this.btn_TryPSR.Size = new System.Drawing.Size(161, 34);
@@ -551,13 +552,15 @@
             // 
             // btn_OK
             // 
+            this.btn_OK.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_OK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_OK.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_OK.Location = new System.Drawing.Point(412, 12);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(194, 78);
             this.btn_OK.TabIndex = 37;
             this.btn_OK.Text = "使用此提取器";
-            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.UseVisualStyleBackColor = false;
             this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
             // btn_LOADTEXT

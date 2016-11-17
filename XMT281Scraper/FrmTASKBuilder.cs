@@ -8,8 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
 namespace XMT281Scraper
 {
+    
     public partial class FrmTASKBuilder : Form
     {
         public FrmTASKBuilder()
@@ -101,9 +105,32 @@ namespace XMT281Scraper
         {
             try
             {
+                if (!System.IO.Directory.Exists(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH)))
+                {
+                    System.IO.Directory.CreateDirectory(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH));
+                }
+
                 Entities.ScraperTask task = GenTask();
-                Tools.Serializer.Serialize("TASK@" + DateTime.Now.ToString("yyyymmdd hhMMss")  +  ".tsk", task);
-                MessageBox.Show("保存成功");
+                if (String.IsNullOrEmpty(txt_TaskName.Text))
+                {
+
+                    Tools.Serializer.Serialize(Settings.TASK_SUBPATH  + "\\TASK@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".tsk", task);
+                    MessageBox.Show("保存成功");
+                }
+                else
+                {
+                    char[] invalidChar = System.IO.Path.GetInvalidFileNameChars();
+                    foreach (var item in invalidChar)
+	                {
+                        if (txt_TaskName.Text.Contains(item))
+                        {
+                            MessageBox.Show("任务名称存在不可以作为文件名的字符：" + item.ToString(),"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+	                }
+                    Tools.Serializer.Serialize(Settings.TASK_SUBPATH  + "\\" + txt_TaskName.Text.Trim() + ".tsk",task);
+                    MessageBox.Show("保存成功");
+                }
             }
             catch (Exception er)
             {
@@ -111,7 +138,7 @@ namespace XMT281Scraper
             }
             
         }
-
+        public Entities.ScraperTask Task { get; set; }
         private Entities.ScraperTask GenTask()
         {
             Entities.ScraperTask task = new Entities.ScraperTask(txt_TaskName.Text.Trim());
@@ -122,12 +149,81 @@ namespace XMT281Scraper
             task.StarGap = (int)(nud_ch.Value);
             task.StarLong = int.Parse(txtPlong.Text);
             task.Processor = this.ctrlPsrList1.Processors;
+            this.Task = task;
             return task;
         }
 
         private void ctrlPsrList1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void btn_ReadTask_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "(*.tsk)tsk文件|*.tsk";
+            ofd.InitialDirectory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH);
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                var task = Tools.Serializer.DeSerializeTSK(ofd.FileName);
+                this.Task = task;
+                //UpdateData();
+                UpdateToUI();
+            }
+        }
+
+        private void UpdateToUI()
+        {
+            this.txt_TaskName.Text = Task.Name;
+            this.txt_URL.Text = Task.StartURL;
+            this.txtFrom.Text = Task.StarStart.ToString();
+            this.txtTo.Text = Task.StarEnd.ToString();
+            this.txtPlong.Text = Task.StarLong.ToString();
+            this.nud_ch.Value = Task.StarGap;
+            this.nud_Current.Value = Task.Current;
+
+            this.ctrlPsrList1.Processors = Task.Processor;
+
+        }
+
+        private void UpdateData()
+        {
+            //this.Task = 
+        }
+
+        private void btn_StartWorker_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("ScrapeWorker ");
+            string taskFile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH, txt_TaskName.Text);
+            sb.Append("-t " + taskFile + ".tsk ");
+
+            sb.Append("-ea " + txt_EA.Text.Trim() + " ");
+            sb.Append("-eb " + txt_EB.Text.Trim() + " ");
+
+            string fn = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,Settings.TASK_SUBPATH,"worker.bat");
+            System.IO.File.WriteAllText(fn,sb.ToString(), Encoding.Default);
+            System.Diagnostics.Process.Start(fn);
+
+        }
+        void work1()
+        {
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            //启用命令行
+            p.StartInfo.FileName = @"cmd.exe";
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = false;
+            p.StartInfo.RedirectStandardError = true;
+            p.StartInfo.CreateNoWindow = false;
+            p.Start();
+            //输入各种命令
+            p.StandardInput.WriteLine("ScrapeWorker -t " + System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH, txt_TaskName.Text + ".tsk"));
+            p.StandardInput.Close();
+            //p.StandardInput.Dispose();
+            //获取结果
+            p.Close();
+            p.Dispose();
         }
 
 

@@ -160,7 +160,13 @@ namespace XMT281Scraper
         {
             try
             {
-                Tools.Serializer.Serialize(txt_Filename.Text.Trim() + DateTime.Now.ToString("@yyyyMMddHHmmss") + ".psr", this.Processor);
+                var savePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH);
+                if (!System.IO.Directory.Exists(savePath))
+                {
+                    System.IO.Directory.CreateDirectory(savePath);
+                }
+
+                Tools.Serializer.Serialize(savePath + "\\"  + txt_Filename.Text.Trim() + DateTime.Now.ToString("@yyyyMMdd HHmmss") + ".psr", this.Processor);
                 MessageBox.Show("成功");
             }
             catch (Exception err)
@@ -174,6 +180,7 @@ namespace XMT281Scraper
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "(*.psr)psr文件|*.psr";
+            ofd.InitialDirectory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH);
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 this.Processor = Tools.Serializer.DeSerializePSR(ofd.FileName);
