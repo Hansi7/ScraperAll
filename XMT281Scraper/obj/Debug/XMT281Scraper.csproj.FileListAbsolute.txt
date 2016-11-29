@@ -62,7 +62,6 @@ E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmPSRBuilder.resource
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.Properties.Resources.resources
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.csproj.GenerateResource.Cache
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmTASKBuilder.resources
-D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\XMT281Scraper.exe.config
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.exe
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.pdb
 D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\XMT281Scraper.exe
