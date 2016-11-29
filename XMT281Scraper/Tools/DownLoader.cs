@@ -43,31 +43,6 @@ namespace XMT281Scraper.Tools
         {
             Process p = new Process();
             //启用命令行
-            p.StartInfo.FileName = @"cmd.exe";
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.RedirectStandardInput = true;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.RedirectStandardError = true;
-            p.StartInfo.CreateNoWindow = false;
-            p.Start();
-            //输入各种命令
-            //p.StandardInput.WriteLine(@"cd " + AppDomain.CurrentDomain.BaseDirectory);
-            //p.StandardInput.WriteLine(@"d:");
-            p.StandardInput.WriteLine("phantomjs --output-encoding=gb2312 test.js " + url);
-            p.StandardInput.Close();
-            p.StandardInput.Dispose();
-            //获取结果
-            string strRst = p.StandardOutput.ReadToEnd();
-            p.Close();
-            p.Dispose();
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(strRst);
-            return doc;
-        }
-        public static HtmlAgilityPack.HtmlDocument GetDocumentPhantomJS2(string url)
-        {
-            Process p = new Process();
-            //启用命令行
             p.StartInfo.FileName = @"phantomjs.exe";
             p.StartInfo.Arguments = "--output-encoding=gb2312 test.js " + url;
             p.StartInfo.UseShellExecute = false;

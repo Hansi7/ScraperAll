@@ -23,6 +23,22 @@ namespace XMT281Scraper
     {
         static void Main(string[] args)
         {
+
+            var argument = CommandLineArgumentParser.Parse(args);
+            
+            if (argument.Has("-t") && !argument.Has("-l"))
+            {
+                workWithTaskFile(args);
+            }
+            if (argument.Has("-l") && !argument.Has("-t"))
+            {
+                workWithListFile(args);
+            }
+        }
+
+
+        private static void workWithTaskFile(string[] args)
+        {
             var dt = new DataTable();
             //PrograssBar();
             try
@@ -42,11 +58,10 @@ namespace XMT281Scraper
                 //args = new string[]{"爱奇艺网络剧.tsk"};
                 var argument = CommandLineArgumentParser.Parse(args);
 
-                if (args.Length ==1)
+                if (args.Length == 1)
                 {
                     taskJson = args[0];
                 }
-
                 if (argument.Has("-t"))
                 {
                     taskJson = argument.Get("-t").Next;
@@ -73,6 +88,10 @@ namespace XMT281Scraper
                     OUTPUT_FILENAME = "OUTPUT" + EXTRA_COLUMN1 + " " + EXTRA_COLUMN2 + ".xlsx";
                 }
 
+
+
+
+
                 //自定义的字段？比如爱奇艺.电影等等。
 
                 #endregion
@@ -82,7 +101,7 @@ namespace XMT281Scraper
 #if isdebug
                 taskJson = "text.txt";
 #else
-                
+
 #endif
                 var taskk = Tools.Serializer.DeSerializeTSK(taskJson);
 #if outputView
@@ -112,11 +131,11 @@ namespace XMT281Scraper
                         int columnGroupFrom;
                         for (int k = 0; k < field1.Count; k++)
                         {
-                            if (j != 0)
+                            if (j != 0)//当前不是第一个提取器，不需要扩容表的列。
                             {
                                 break;
                             }
-                            else // 当前是第一个提取器
+                            else // 当前是第一个提取器,需要扩容表的列
                             {
                                 columnGroupFrom = dt.Columns.Count;
                                 if (k == 0) lastColumn = columnGroupFrom;//这一组的第一个列名称序号存下来。日后使用
@@ -125,14 +144,12 @@ namespace XMT281Scraper
                                 Console.Write("扩容数据表..." + dt.Columns.Count.ToString() + "    \r");
 #endif
                             }
-
                         }
                         for (int k = 0; k < field1.Count; k++)
                         {
                             if (dt.Rows.Count >= taskk.Processor.Count)
                             {
                                 dt.Rows[j]["R" + (lastColumn + k).ToString()] = field1[k];
-
                             }
                             else
                             {
@@ -141,19 +158,19 @@ namespace XMT281Scraper
                             }
 
                         }
-                        
+
 #if outputView
                         Console.WriteLine("保存数据............................." + dt.Columns.Count.ToString() + "    \r");
 #endif
                     }
                 }
-                
-                string[] extra1 =new string[dt.Columns.Count];
+
+                string[] extra1 = new string[dt.Columns.Count];
                 for (int i = 0; i < extra1.Length; i++)
                 {
                     extra1[i] = EXTRA_COLUMN1;
                 }
-                
+
                 string[] extra2 = new string[dt.Columns.Count];
                 for (int i = 0; i < extra2.Length; i++)
                 {
@@ -174,10 +191,19 @@ namespace XMT281Scraper
             catch (Exception err)
             {
                 Console.WriteLine(err.ToString());
-                System.IO.File.WriteAllText("ERROR@" + DateTime.Now.ToString("YYYYmmdd HHMMss") + ".log",err.ToString());
+                System.IO.File.WriteAllText("ERROR@" + DateTime.Now.ToString("YYYYmmdd HHMMss") + ".log", err.ToString());
             }
             Console.WriteLine("按任意键退出...");
             Console.ReadKey();
+        }
+
+        private static void workWithListFile(string[] args)
+        {
+            var argument = CommandLineArgumentParser.Parse(args);
+            var kk = argument.Get("-p");
+
+
+
         }
         private static DataTable GenerateTransposedTable(DataTable inputTable)
         {

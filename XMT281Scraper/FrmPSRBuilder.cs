@@ -317,7 +317,7 @@ namespace XMT281Scraper
             for (int i = 2; i < 10; i++)
             {
                 var lili = arrangment.QueueAll(i, null);
-                if (lili.Count> 1000)
+                if (lili.Count> 500)
                 {
                     MessageBox.Show("没有探测到，下一次探测要10秒以上，而且希望渺茫！");
                     return;
