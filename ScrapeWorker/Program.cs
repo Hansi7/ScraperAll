@@ -35,8 +35,6 @@ namespace XMT281Scraper
                 workWithListFile(args);
             }
         }
-
-
         private static void workWithTaskFile(string[] args)
         {
             var dt = new DataTable();
@@ -45,7 +43,7 @@ namespace XMT281Scraper
             {
                 string EXTRA_COLUMN1 = "未定义1";
                 string EXTRA_COLUMN2 = "未定义2";
-                string OUTPUT_FILENAME = "OUTPUT" + EXTRA_COLUMN1 + " " + EXTRA_COLUMN2 + ".xlsx";
+                string OUTPUT_FILENAME = "OUTPUT " + EXTRA_COLUMN1 + " " + EXTRA_COLUMN2 + ".xlsx";
                 string taskJson = "";
 #if isdebug
 #else
@@ -191,20 +189,21 @@ namespace XMT281Scraper
             catch (Exception err)
             {
                 Console.WriteLine(err.ToString());
-                System.IO.File.WriteAllText("ERROR@" + DateTime.Now.ToString("YYYYmmdd HHMMss") + ".log", err.ToString());
+                System.IO.File.WriteAllText("ERROR@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".log", err.ToString());
             }
             Console.WriteLine("按任意键退出...");
             Console.ReadKey();
         }
-
         private static void workWithListFile(string[] args)
         {
+            //还没有写完
             var argument = CommandLineArgumentParser.Parse(args);
             var kk = argument.Get("-p");
 
 
 
         }
+
         private static DataTable GenerateTransposedTable(DataTable inputTable)
         {
             DataTable outputTable = new DataTable();
@@ -297,5 +296,7 @@ namespace XMT281Scraper
             //等待退出             
             Console.ReadKey(true);
         }
+
+
     }
 }

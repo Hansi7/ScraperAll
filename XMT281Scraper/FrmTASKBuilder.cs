@@ -105,6 +105,29 @@ namespace XMT281Scraper
         {
             try
             {
+                if (saveTaskFile() != "")
+                {
+                    MessageBox.Show("保存成功！");
+                }
+                else
+                {
+                    MessageBox.Show("保存失败！","错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+        /// <summary>
+        /// 保存任务文件
+        /// </summary>
+        /// <returns>保存成功后的文件名</returns>
+        string saveTaskFile()
+        {
+            try
+            {
+                string saveFileName = "";
                 if (!System.IO.Directory.Exists(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH)))
                 {
                     System.IO.Directory.CreateDirectory(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH));
@@ -113,30 +136,30 @@ namespace XMT281Scraper
                 Entities.ScraperTask task = GenTask();
                 if (String.IsNullOrEmpty(txt_TaskName.Text))
                 {
-
-                    Tools.Serializer.Serialize(Settings.TASK_SUBPATH  + "\\TASK@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".tsk", task);
-                    MessageBox.Show("保存成功");
+                    saveFileName = Settings.TASK_SUBPATH + "\\TASK@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".tsk";
+                    Tools.Serializer.Serialize(saveFileName, task);
+                    return saveFileName;
                 }
                 else
                 {
                     char[] invalidChar = System.IO.Path.GetInvalidFileNameChars();
                     foreach (var item in invalidChar)
-	                {
+                    {
                         if (txt_TaskName.Text.Contains(item))
                         {
-                            MessageBox.Show("任务名称存在不可以作为文件名的字符：" + item.ToString(),"错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            MessageBox.Show("任务名称存在不可以作为文件名的字符：" + item.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return "";
                         }
-	                }
-                    Tools.Serializer.Serialize(Settings.TASK_SUBPATH  + "\\" + txt_TaskName.Text.Trim() + ".tsk",task);
-                    MessageBox.Show("保存成功");
+                    }
+                    saveFileName = Settings.TASK_SUBPATH + "\\" + txt_TaskName.Text.Trim() + ".tsk";
+                    Tools.Serializer.Serialize(saveFileName, task);
+                    return saveFileName;
                 }
             }
             catch (Exception er)
             {
-                MessageBox.Show(er.Message);
+                throw er;
             }
-            
         }
         public Entities.ScraperTask Task { get; set; }
         private Entities.ScraperTask GenTask()
@@ -153,10 +176,7 @@ namespace XMT281Scraper
             return task;
         }
 
-        private void ctrlPsrList1_Load(object sender, EventArgs e)
-        {
-            
-        }
+
 
         private void btn_ReadTask_Click(object sender, EventArgs e)
         {
@@ -193,43 +213,28 @@ namespace XMT281Scraper
 
         private void btn_StartWorker_Click(object sender, EventArgs e)
         {
+            string taskFile = saveTaskFile();
+
+            if (taskFile=="")
+            {
+                MessageBox.Show("任务保存失败！文件名不符合规定");
+                return;
+            }
             StringBuilder sb = new StringBuilder();
             sb.Append("ScrapeWorker ");
-            string taskFile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH, txt_TaskName.Text);
-            sb.Append("-t " + taskFile + ".tsk ");
+            sb.Append("-t " + taskFile + " ");
 
             sb.Append("-ea " + txt_EA.Text.Trim() + " ");
             sb.Append("-eb " + txt_EB.Text.Trim() + " ");
 
-            string fn = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,Settings.TASK_SUBPATH,"worker.bat");
+            string fn = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,Settings.TASK_SUBPATH,"worker" + DateTime.Now.Millisecond.ToString()  + ".bat");
+            if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(fn)))
+            {
+                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fn));
+            }
             System.IO.File.WriteAllText(fn,sb.ToString(), Encoding.Default);
             System.Diagnostics.Process.Start(fn);
 
         }
-        void work1()
-        {
-            System.Diagnostics.Process p = new System.Diagnostics.Process();
-            //启用命令行
-            p.StartInfo.FileName = @"cmd.exe";
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.RedirectStandardInput = true;
-            p.StartInfo.RedirectStandardOutput = false;
-            p.StartInfo.RedirectStandardError = true;
-            p.StartInfo.CreateNoWindow = false;
-            p.Start();
-            //输入各种命令
-            p.StandardInput.WriteLine("ScrapeWorker -t " + System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH, txt_TaskName.Text + ".tsk"));
-            p.StandardInput.Close();
-            //p.StandardInput.Dispose();
-            //获取结果
-            p.Close();
-            p.Dispose();
-        }
-
-
-
-
-
-
     }
 }

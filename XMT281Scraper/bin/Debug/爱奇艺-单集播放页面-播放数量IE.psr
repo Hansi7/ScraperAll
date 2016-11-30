@@ -1,1 +1,0 @@
-{"Name":"爱奇艺-单集播放页面-播放数量","StartURL":"http://www.iqiyi.com/v_19rrgy5lp4.html","XPath":"//span[@id='widget-playcount']","CssSelector":"","NodeOffset":0,"NodeAttribute":"InnerText","Remover":[],"Replacer":{},"RemoveBefore":"","RemoveAfter":""}

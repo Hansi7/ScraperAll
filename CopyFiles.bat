@@ -1,6 +1,6 @@
-copy ScrapeWorker\bin\Release\ScrapeWorker.* XMT281Scraper\bin\Release
+copy ScrapeWorker\bin\Debug\ScrapeWorker.* XMT281Scraper\bin\Debug
 
-copy XMT281Scraper\bin\Release\XMT281*.* ScrapeWorker\bin\Release\
+copy XMT281Scraper\bin\Debug\XMT281*.* ScrapeWorker\bin\Debug\
 
-copy packages\phantomjs\*.* XMT281Scraper\bin\Release
-copy packages\phantomjs\*.* ScrapeWorker\bin\Release\
+copy packages\phantomjs\*.* XMT281Scraper\bin\Debug
+

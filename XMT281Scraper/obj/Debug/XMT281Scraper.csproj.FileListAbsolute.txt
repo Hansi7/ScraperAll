@@ -62,8 +62,8 @@ E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmPSRBuilder.resource
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.Properties.Resources.resources
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.csproj.GenerateResource.Cache
 E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmTASKBuilder.resources
-D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.exe
-D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.pdb
+E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.CtrlPsrList.resources
+D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\XMT281Scraper.exe.config
 D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\XMT281Scraper.exe
 D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\XMT281Scraper.pdb
 D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\EPPlus.dll
@@ -77,11 +77,11 @@ D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\FSharp.Core.xml
 D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\HtmlAgilityPack.pdb
 D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\HtmlAgilityPack.xml
 D:\CODE\ScrapyAll\XMT281Scraper\bin\Debug\Newtonsoft.Json.xml
-D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.csprojResolveAssemblyReference.cache
+D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.CtrlPsrList.resources
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.Form1.resources
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmPSRBuilder.resources
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.FrmTASKBuilder.resources
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.Properties.Resources.resources
 D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.csproj.GenerateResource.Cache
-D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.CtrlPsrList.resources
-E:\Codes\ScraperAll\XMT281Scraper\obj\Debug\XMT281Scraper.CtrlPsrList.resources
+D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.exe
+D:\CODE\ScrapyAll\XMT281Scraper\obj\Debug\XMT281Scraper.pdb

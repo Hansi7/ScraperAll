@@ -295,7 +295,6 @@
             this.ctrlPsrList1.Name = "ctrlPsrList1";
             this.ctrlPsrList1.Size = new System.Drawing.Size(250, 150);
             this.ctrlPsrList1.TabIndex = 18;
-            this.ctrlPsrList1.Load += new System.EventHandler(this.ctrlPsrList1_Load);
             // 
             // txt_EA
             // 
