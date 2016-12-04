@@ -40,8 +40,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\FSharp.Core.4.0.0.1\lib\net40\FSharp.Core.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -75,6 +74,8 @@
     <Compile Include="CtrlPsrList.Designer.cs">
       <DependentUpon>CtrlPsrList.cs</DependentUpon>
     </Compile>
+    <Compile Include="CommandLineArgument.cs" />
+    <Compile Include="CommandLineArgumentParser.cs" />
     <Compile Include="Entities\EnumNodeOffset.cs" />
     <Compile Include="Entities\Processor.cs" />
     <Compile Include="Extensions\ListExtension.cs" />
@@ -110,6 +111,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Tools\Scraper.cs" />
+    <Compile Include="Tools\ScraperWorker.cs" />
     <Compile Include="Tools\Serializer.cs" />
     <EmbeddedResource Include="CtrlPsrList.resx">
       <DependentUpon>CtrlPsrList.cs</DependentUpon>

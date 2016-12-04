@@ -18,4 +18,15 @@ ScrapeWorker [-l listfile] [-p psr文件1 psr文件2 ...] [-ea 备注列] [-eb �
 -p  psr文件       指定一个或者多个psr文件。
 
 例如：
-ScrapeWorker -l d:\urls.txt -p 优酷标题.psr 优酷导演.psr 优酷网址.psr -ea 优酷网 -eb 香港电影
+ScrapeWorker -l d:\urls.txt -t 优酷香港电影.tsk -ea 优酷网 -eb 香港电影
+
+
+
+TODO:
+1.本地一个Sqlite数据库
+2.结果入表
+3.输出结果就是查询
+
+4.爬取得输出结果是一个DataTable对象最好。
+5.当一个Processor的结果是一个网址且含有一个SubProcessor，那么继续执行SubProcessor，将结果命名为此Processor的结果。
+【避免出现List<Processor>，但是会增加工作量】

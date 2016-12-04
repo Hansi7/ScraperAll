@@ -31,7 +31,7 @@ namespace XMT281Scraper.Entities
         public Dictionary<string, string> Replacer { get; set; }
         public string RemoveBefore { get; set; }
         public string RemoveAfter { get; set; }
-        public Processor SubProcessor { get; set; }
+        public List<Processor> SubProcessor { get; set; }
         public ScraperTask Task { get; set; }
         public override string ToString()
         {

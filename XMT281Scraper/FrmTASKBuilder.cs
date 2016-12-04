@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace XMT281Scraper
 {
-    
+
     public partial class FrmTASKBuilder : Form
     {
         public FrmTASKBuilder()
@@ -24,9 +24,9 @@ namespace XMT281Scraper
         public HtmlAgilityPack.HtmlDocument Document { get; set; }
         private string Gen()
         {
-            int frm, too, plong,ch;
+            int frm, too, plong, ch;
             ch = (int)nud_ch.Value;//增长间隔不能为0
-            if (int.TryParse(txtFrom.Text, out frm) && frm < 9999 && int.TryParse(txtTo.Text, out too) && too < 9999&& int.TryParse(txtPlong.Text, out plong) && plong<=3 && plong>=1)
+            if (int.TryParse(txtFrom.Text, out frm) && frm < 9999 && int.TryParse(txtTo.Text, out too) && too < 9999 && int.TryParse(txtPlong.Text, out plong) && plong <= 3 && plong >= 1)
             {
                 var st = txt_URL.Text.IndexOf("(*)");
                 if (st == -1)
@@ -36,7 +36,7 @@ namespace XMT281Scraper
                 else
                 {
                     StringBuilder sb = new StringBuilder();
-                    for (int i = frm; i <=too; i= i + ch )
+                    for (int i = frm; i <= too; i = i + ch)
                     {
                         switch (plong)
                         {
@@ -111,7 +111,7 @@ namespace XMT281Scraper
                 }
                 else
                 {
-                    MessageBox.Show("保存失败！","错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("保存失败！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception err)
@@ -214,26 +214,38 @@ namespace XMT281Scraper
         private void btn_StartWorker_Click(object sender, EventArgs e)
         {
             string taskFile = saveTaskFile();
-
-            if (taskFile=="")
-            {
-                MessageBox.Show("任务保存失败！文件名不符合规定");
-                return;
-            }
             StringBuilder sb = new StringBuilder();
+            StringBuilder pam = new StringBuilder();
+
             sb.Append("ScrapeWorker ");
-            sb.Append("-t " + taskFile + " ");
+            pam.Append("-t " + taskFile + " ");
 
-            sb.Append("-ea " + txt_EA.Text.Trim() + " ");
-            sb.Append("-eb " + txt_EB.Text.Trim() + " ");
+            pam.Append("-ea " + txt_EA.Text.Trim() + " ");
+            pam.Append("-eb " + txt_EB.Text.Trim() + " ");
 
-            string fn = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory,Settings.TASK_SUBPATH,"worker" + DateTime.Now.Millisecond.ToString()  + ".bat");
-            if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(fn)))
+            if (false)//为真为正常模式，为假为调试模式。
             {
-                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fn));
+                if (taskFile == "")
+                {
+                    MessageBox.Show("任务保存失败！文件名不符合规定");
+                    return;
+                }
+
+
+                string fn = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Settings.TASK_SUBPATH, "worker" + DateTime.Now.Millisecond.ToString() + ".bat");
+                if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(fn)))
+                {
+                    System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fn));
+                }
+                System.IO.File.WriteAllText(fn, sb.ToString() + pam.ToString(), Encoding.Default);
+                System.Diagnostics.Process.Start(fn);
             }
-            System.IO.File.WriteAllText(fn,sb.ToString(), Encoding.Default);
-            System.Diagnostics.Process.Start(fn);
+            else
+            {
+                Tools.ScraperWorker.DoWork(pam.ToString().Split(new char[]{' '}, StringSplitOptions.RemoveEmptyEntries));
+            }
+
+            
 
         }
     }
