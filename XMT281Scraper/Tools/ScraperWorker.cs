@@ -12,176 +12,23 @@ namespace XMT281Scraper.Tools
 {
     public static class ScraperWorker
     {
+        static ScraperWorker()
+        {
+            getor = Tools.DownLoader.GetDocument;
+        }
+
+        static readonly GetDOCUMENT  getor;
 
         /**
          * 这两个函数还要重新写,目前有点复杂。逻辑还不够清晰。还可以再拆解。
          */
-        public static void workWithTaskFile333(string[] args)
-        {
-            var dt = new DataTable();
-            //PrograssBar();
-            try
-            {
-                string EXTRA_COLUMN1 = "未定义1";
-                string EXTRA_COLUMN2 = "未定义2";
-                string OUTPUT_FILENAME = "OUTPUT " + EXTRA_COLUMN1 + " " + EXTRA_COLUMN2 + ".xlsx";
-                string taskJson = "";
-#if isdebug
-#else
-
-
-                #region 可能需要的参数
-                //输出的文件名？
-
-
-                //args = new string[]{"爱奇艺网络剧.tsk"};
-                var argument = CommandLineArgumentParser.Parse(args);
-
-                if (args.Length == 1)
-                {
-                    taskJson = args[0];
-                }
-                if (argument.Has("-t"))
-                {
-                    taskJson = argument.Get("-t").Next;
-                }
-                else
-                {
-                    Console.WriteLine("必须指定任务文件的文件名，使用 -t (任务文件.tsk)");
-                    return;
-                }
-                if (argument.Has("-ea"))
-                {
-                    EXTRA_COLUMN1 = argument.Get("-ea").Next;
-                }
-                if (argument.Has("-eb"))
-                {
-                    EXTRA_COLUMN2 = argument.Get("-eb").Next;
-                }
-                if (argument.Has("-o"))
-                {
-                    OUTPUT_FILENAME = argument.Get("-o").Next + ".xlsx";
-                }
-                else
-                {
-                    OUTPUT_FILENAME = "OUTPUT" + EXTRA_COLUMN1 + " " + EXTRA_COLUMN2 + ".xlsx";
-                }
-
-
-
-
-
-                //自定义的字段？比如爱奇艺.电影等等。
-
-                #endregion
-#endif
-                //这些参数在任务文件里面写上？
-
-#if isdebug
-                taskJson = "text.txt";
-#else
-
-#endif
-                var taskk = Tools.Serializer.DeSerializeTSK(taskJson);
-#if outputView
-                Console.WriteLine("读取正常任务文件...ok!");
-#endif
-
-
-                for (int i = taskk.Current; i <= taskk.StarEnd; i++)
-                {
-                    int lastColumn = 0;//
-                    taskk.Current = i;
-#if outputView
-                    Console.WriteLine("当前进行到页码.............................." + i + "/" + taskk.StarEnd);
-#endif
-                    for (int j = 0; j < taskk.Processor.Count; j++)
-                    {
-
-#if outputView
-                        Console.WriteLine("提取器位置..." + (j + 1).ToString() + "/" + taskk.Processor.Count);
-#endif
-                        //field1 每页的数量
-                        var field1 = Tools.Scraper.Scrape(Tools.DownLoader.GetDocument(taskk.CurrentURL), taskk.Processor[j]);
-#if outputView
-                        Console.WriteLine("提取到数据条数===" + field1.Count);
-#endif
-
-                        int columnGroupFrom;
-                        for (int k = 0; k < field1.Count; k++)
-                        {
-                            if (j != 0)//当前不是第一个提取器，不需要扩容表的列。
-                            {
-                                break;
-                            }
-                            else // 当前是第一个提取器,需要扩容表的列
-                            {
-                                columnGroupFrom = dt.Columns.Count;
-                                if (k == 0) lastColumn = columnGroupFrom;//这一组的第一个列名称序号存下来。日后使用
-                                dt.Columns.Add("R" + columnGroupFrom);//对存储空间进行扩容
-#if outputView
-                                Console.Write("扩容数据表..." + dt.Columns.Count.ToString() + "    \r");
-#endif
-                            }
-                        }
-                        for (int k = 0; k < field1.Count; k++)
-                        {
-                            if (dt.Rows.Count >= taskk.Processor.Count)
-                            {
-                                dt.Rows[j]["R" + (lastColumn + k).ToString()] = field1[k];
-                            }
-                            else
-                            {
-                                dt.Rows.Add(field1.ToArray());
-                                break;
-                            }
-
-                        }
-
-#if outputView
-                        Console.WriteLine("保存数据............................." + dt.Columns.Count.ToString() + "    \r");
-#endif
-                    }
-                }
-
-                string[] extra1 = new string[dt.Columns.Count];
-                for (int i = 0; i < extra1.Length; i++)
-                {
-                    extra1[i] = EXTRA_COLUMN1;
-                }
-
-                string[] extra2 = new string[dt.Columns.Count];
-                for (int i = 0; i < extra2.Length; i++)
-                {
-                    extra2[i] = EXTRA_COLUMN2;
-                }
-                dt.Rows.Add(extra1);
-                dt.Rows.Add(extra2);
-                var dtOutput = GenerateTransposedTable(dt);
-                //Print(dt);
-                Console.Write("保存文件...");
-                //Print(dtOutput);
-                Tools.ExcelOutput.DataTableToExcel(dtOutput, OUTPUT_FILENAME);
-                Console.WriteLine("...成功！");
-                Console.WriteLine("=======正在打开文件=========");
-                System.Diagnostics.Process.Start(OUTPUT_FILENAME);
-
-            }
-            catch (Exception err)
-            {
-                Console.WriteLine(err.ToString());
-                System.IO.File.WriteAllText("ERROR@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".log", err.ToString());
-            }
-            Console.WriteLine("按任意键退出...");
-            Console.ReadKey();
-        }
         /// <summary>
         /// 试图重构一下
         /// </summary>
         /// <param name="args"></param>
         public static void workWithTaskFile(string[] args)
         {
-
+            
             List<List<string>> listlist = new List<List<string>>();
             //PrograssBar();
             try
@@ -244,11 +91,14 @@ namespace XMT281Scraper.Tools
                 Console.WriteLine("读取正常任务文件...ok!");
 #endif
                 //几个提取器几个列表，先占位。
-                //先占位不可靠，因为有SubProcessor
+                //尽管先占位不可靠，因为有SubProcessor，但还是先扩好空间。
                 for (int i = 0; i < taskk.Processor.Count; i++)
                 {
                     listlist.Add(new List<string>());
                 }
+
+                bool firstRound = true;//记录第一轮是否完成，用来确定内存中列表的数量。
+
 
 
                 for (int i = taskk.Current; i <= taskk.StarEnd; i++)
@@ -264,7 +114,7 @@ namespace XMT281Scraper.Tools
                         Console.WriteLine("提取器位置..." + (j + 1).ToString() + "/" + taskk.Processor.Count);
 #endif
                         //field1 每页的数量
-                        var field0 = Tools.Scraper.Scrape(Tools.DownLoader.GetDocument(taskk.CurrentURL), taskk.Processor[j]);
+                        var field0 = Tools.Scraper.Scrape(getor(taskk.CurrentURL), taskk.Processor[j]);
 #if outputView
                         Console.WriteLine("提取到数据条数===" + field0.Count);
 #endif
@@ -272,14 +122,33 @@ namespace XMT281Scraper.Tools
                         //含有子处理器，将field0交给另外个函数处理。处理完毕后保证field0是处理后的结果。
                         if (taskk.Processor[j].SubProcessor!=null && taskk.Processor[j].SubProcessor.Count>0)
                         {
+
+                            Console.WriteLine("发现此项为含有扩展任务...爬取扩展任务~");
+                            int subPsrColumn = taskk.Processor.Count;//扩展的SubPsr结果从列序号开始。
+
                             List<List<string>> subResult = ProcessSub(taskk.Processor[j].SubProcessor, field0);
-                            listlist.AddRange(subResult);
+                            Console.WriteLine("扩展任务完成！");
+
+                            if (firstRound)
+                            {
+                                //第一次可以这么加入，
+                                listlist.AddRange(subResult);
+                            }
+                            else
+                            {
+                                //第二次以上的，就要找到那个list，然后续写列表。代码类似如下。
+                                for (int k = 0; k < subResult.Count; k++)
+                                {
+                                    listlist[subPsrColumn++].AddRange(subResult[k]);
+                                }
+                            }
                         }
 #if outputView
+                        
                         Console.WriteLine("保存数据.............................OK!");
 #endif
                     }
-
+                    firstRound = false; //第一轮结束(此时所有的PSR都走过一遍了！)
                 }
 
 
@@ -320,7 +189,6 @@ namespace XMT281Scraper.Tools
 
         private static List<List<string>> ProcessSub(List<Entities.Processor> prcList, List<string> field0)
         {
-
             //这个位置有问题呀。
             List<List<string>> llist = new List<List<string>>();
 
@@ -332,7 +200,8 @@ namespace XMT281Scraper.Tools
             {
                 for (int j = 0; j < prcList.Count; j++)
                 {
-                    var field1 = Scraper.Scrape(Tools.DownLoader.GetDocument(field0[i]), prcList[j]);
+                    var field1 = Scraper.Scrape(getor(field0[i]), prcList[j]);
+                    Console.WriteLine(string.Format("扩展任务已完成：{0}/{1}  {2}/{3}",i+1,field0.Count,j+1,prcList.Count));
                     llist[j].Add(field1[0]);
                 }
             }
@@ -469,5 +338,10 @@ namespace XMT281Scraper.Tools
                 workWithListFile(args);
             }
         }
+    
+    
     }
+
+
+    delegate HtmlAgilityPack.HtmlDocument GetDOCUMENT(string url);
 }

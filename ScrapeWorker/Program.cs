@@ -21,6 +21,7 @@ namespace XMT281Scraper
         static void Main(string[] args)
         {
             XMT281Scraper.Tools.ScraperWorker.DoWork(args);
+            Console.ReadKey();
         }
     }
 }

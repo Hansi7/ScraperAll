@@ -95,7 +95,7 @@ namespace XMT281Scraper
         private void btn_ReadHTML2_Click(object sender, EventArgs e)
         {
             var urls = txt_Output.Text.Split(new string[] { "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            this.Document = Tools.DownLoader.GetDocumentPhantomJS(urls[0]);
+            this.Document = Tools.DownLoader.GetDocumentPhantomJS15(urls[0]);
             this.Document.Save("LastLoad2.html");
             ctrlPsrList1.Document = this.Document;
             MessageBox.Show("使用浏览器读取网页完成！源代码文件保存为LastLoad2.html");

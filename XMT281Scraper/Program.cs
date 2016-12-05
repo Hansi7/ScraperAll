@@ -19,11 +19,11 @@ namespace XMT281Scraper
         [STAThread]
         static void Main()
         {
-            //AllocConsole();//调用系统API，调用控制台窗口
+            AllocConsole();//调用系统API，调用控制台窗口
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            //FreeConsole();//释放控制台
+            FreeConsole();//释放控制台
 
         }
     }
