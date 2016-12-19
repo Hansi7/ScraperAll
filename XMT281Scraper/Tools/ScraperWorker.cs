@@ -101,7 +101,7 @@ namespace XMT281Scraper.Tools
 
 
 
-                for (int i = taskk.Current; i <= taskk.StarEnd; i++)
+                for (int i = taskk.Current; i <= taskk.StarEnd; i= i+ taskk.StarGap)
                 {
 
                     taskk.Current = i;
