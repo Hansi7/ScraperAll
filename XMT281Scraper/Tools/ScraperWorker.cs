@@ -227,7 +227,30 @@ namespace XMT281Scraper.Tools
 
         public static void workWithListFile(string[] args)
         {
-            
+            var argument = CommandLineArgumentParser.Parse(args);
+            string[] urls = null;
+            Entities.Processor psr = null;
+            if (argument.Has("-l"))
+            {
+                var listfile = argument.Get("-l").Next;
+                urls = System.IO.File.ReadAllLines(listfile);
+            }
+
+            if (argument.Has("-p"))
+            {
+                var psrfile = argument.Get("-p").Next;
+                psr = Tools.Serializer.DeSerializePSR(psrfile);
+            }
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var url in urls)
+            {
+                var f1 = Tools.Scraper.Scrape(getor(url), psr);
+                sb.AppendLine(url + "\t" + f1[0].ToString());
+            }
+
+            System.IO.File.WriteAllText("taskFromListfile.txt", sb.ToString());
+            System.Windows.Forms.MessageBox.Show("OK!");
 
 
         }
