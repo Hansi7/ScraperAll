@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnStart = new System.Windows.Forms.Button();
             this.webbrowser = new System.Windows.Forms.WebBrowser();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,6 +38,10 @@
             this.txt_WebbrowserURL = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ctrlPsrList1 = new XMT281Scraper.CtrlPsrList();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lb_urls = new System.Windows.Forms.ListBox();
+            this.btn_load_urlfile = new System.Windows.Forms.Button();
+            this.btn_go_to_next = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStart
@@ -125,14 +130,57 @@
             this.ctrlPsrList1.Document = null;
             this.ctrlPsrList1.Location = new System.Drawing.Point(551, 1);
             this.ctrlPsrList1.Name = "ctrlPsrList1";
+            this.ctrlPsrList1.Processors = ((System.Collections.Generic.List<XMT281Scraper.Entities.Processor>)(resources.GetObject("ctrlPsrList1.Processors")));
             this.ctrlPsrList1.Size = new System.Drawing.Size(250, 150);
             this.ctrlPsrList1.TabIndex = 19;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "地址：";
+            // 
+            // lb_urls
+            // 
+            this.lb_urls.FormattingEnabled = true;
+            this.lb_urls.ItemHeight = 12;
+            this.lb_urls.Location = new System.Drawing.Point(59, 78);
+            this.lb_urls.Name = "lb_urls";
+            this.lb_urls.Size = new System.Drawing.Size(439, 64);
+            this.lb_urls.TabIndex = 21;
+            // 
+            // btn_load_urlfile
+            // 
+            this.btn_load_urlfile.Location = new System.Drawing.Point(12, 117);
+            this.btn_load_urlfile.Name = "btn_load_urlfile";
+            this.btn_load_urlfile.Size = new System.Drawing.Size(41, 25);
+            this.btn_load_urlfile.TabIndex = 22;
+            this.btn_load_urlfile.Text = "加载";
+            this.btn_load_urlfile.UseVisualStyleBackColor = true;
+            this.btn_load_urlfile.Click += new System.EventHandler(this.btn_load_urlfile_Click);
+            // 
+            // btn_go_to_next
+            // 
+            this.btn_go_to_next.Location = new System.Drawing.Point(504, 79);
+            this.btn_go_to_next.Name = "btn_go_to_next";
+            this.btn_go_to_next.Size = new System.Drawing.Size(41, 25);
+            this.btn_go_to_next.TabIndex = 23;
+            this.btn_go_to_next.Text = "下一个";
+            this.btn_go_to_next.UseVisualStyleBackColor = true;
+            this.btn_go_to_next.Click += new System.EventHandler(this.btn_go_to_next_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 180);
+            this.Controls.Add(this.btn_go_to_next);
+            this.Controls.Add(this.btn_load_urlfile);
+            this.Controls.Add(this.lb_urls);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ctrlPsrList1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_WebbrowserURL);
@@ -161,6 +209,10 @@
         private System.Windows.Forms.TextBox txt_WebbrowserURL;
         private System.Windows.Forms.Label label1;
         private CtrlPsrList ctrlPsrList1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lb_urls;
+        private System.Windows.Forms.Button btn_load_urlfile;
+        private System.Windows.Forms.Button btn_go_to_next;
     }
 }
 

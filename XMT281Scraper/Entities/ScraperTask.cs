@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace XMT281Scraper.Entities
 {
+    [Serializable]
     public class ScraperTask
     {
         public ScraperTask(string taskName)

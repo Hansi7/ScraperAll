@@ -247,8 +247,25 @@ namespace XMT281Scraper
             }
         }
 
+        private void btn_load_urlfile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "txt files(*.txt)| *.txt | All files(*.*) | *.*";
 
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var urls = System.IO.File.ReadLines(ofd.FileName);
+                lb_urls.Items.AddRange(urls.ToArray<string>());
+                lb_urls.SetSelected(0, true);
+            }
 
+        }
 
+        private void btn_go_to_next_Click(object sender, EventArgs e)
+        {
+            txt_WebbrowserURL.Text = lb_urls.SelectedItem.ToString();
+            webbrowser.Navigate(txt_WebbrowserURL.Text.Trim());
+            lb_urls.SetSelected(lb_urls.SelectedIndex + 1, true);
+        }
     }
 }

@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace XMT281Scraper.Entities
 {
+    [Serializable]
      public class Processor
     {
          public Processor()
