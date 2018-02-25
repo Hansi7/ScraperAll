@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XMT281Scraper.Interface
+namespace ScraperAll.DBControl
 {
-    interface IBrowser
+    class Config
     {
-        HtmlAgilityPack.HtmlDocument GetDocument(string uri);
+        public static string ConnectionString = "Data Source= result.db";
     }
 }

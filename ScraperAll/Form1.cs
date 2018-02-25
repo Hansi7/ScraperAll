@@ -16,5 +16,11 @@ namespace ScraperAll
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DBControl.DBControl con = new DBControl.DBControl();
+            con.BuildDB();
+        }
     }
 }

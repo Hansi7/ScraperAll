@@ -95,7 +95,6 @@
     <Compile Include="FrmTASKBuilder.designer.cs">
       <DependentUpon>FrmTASKBuilder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\IBrowser.cs" />
     <Compile Include="Entities\ScraperTask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
