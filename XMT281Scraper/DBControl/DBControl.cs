@@ -21,8 +21,11 @@ namespace ScraperAll.DBControl
             });
         }
 
+        public SimpleClient<Models.Result> ResultDB { get { return new SimpleClient<Models.Result>(db); } }
+
         public string BuildDB()
         {
+
             string sql = @"
             create table result(
             id INTEGER PRIMARY key AUTOINCREMENT,
@@ -38,10 +41,20 @@ namespace ScraperAll.DBControl
             c9 text
             )";
 
-            db.Ado.ExecuteCommand(sql);
+            if (!System.IO.File.Exists(Config.DB_File))
+            {
+                System.Data.SQLite.SQLiteConnection.CreateFile(Config.DB_File);
+                db.Ado.ExecuteCommand(sql);
+                return "新建数据库成功";
+            }
+            
+            return "已经有数据库了，不能新建了";
 
-            return "";
+        }
 
+        public void CreateClassFile()
+        {
+            db.DbFirst.CreateClassFile("Result");
         }
 
     }

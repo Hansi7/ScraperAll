@@ -17,9 +17,9 @@ using System.IO;
 
 namespace XMT281Scraper
 {
-    public partial class Form1 : Form
+    public partial class FrmSinglePage : Form
     {
-        public Form1()
+        public FrmSinglePage()
         {
             InitializeComponent();
             ListPsrs = new List<Entities.Processor>();
