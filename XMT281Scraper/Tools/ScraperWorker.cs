@@ -245,8 +245,15 @@ namespace XMT281Scraper.Tools
 
             foreach (var url in urls)
             {
-                var f1 = Tools.Scraper.Scrape(getor(url), psr);
-                sb.AppendLine(url + "\t" + f1[0].ToString());
+
+                
+                var htmlt = Tools.DownLoader.GetDocument(url);
+                var f1 = Tools.Scraper.Scrape(htmlt, psr);
+                Console.WriteLine(DateTime.Now.ToString() + " GET:" + f1.Count);
+                foreach (var item in f1)
+                {
+                    sb.AppendLine(url + "\t" + item);
+                }
             }
 
             System.IO.File.WriteAllText("taskFromListfile.txt", sb.ToString());
@@ -356,7 +363,7 @@ namespace XMT281Scraper.Tools
             {
                 workWithTaskFile(args);
             }
-            if (argument.Has("-l") && argument.Has("-t"))
+            if (argument.Has("-l") && argument.Has("-p"))
             {
                 workWithListFile(args);
             }

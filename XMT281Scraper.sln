@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMT281Scraper", "XMT281Scraper\XMT281Scraper.csproj", "{16CAD867-FE64-4CFD-9D7E-A4BCFE2708CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeWorker", "ScrapeWorker\ScrapeWorker.csproj", "{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScraperAll", "ScraperAll\ScraperAll.csproj", "{90211348-0175-4D54-B4AC-CADB94B76C4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,8 +23,15 @@ Global
 		{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8E425AE-0FC3-4B5F-AAA6-83F025C8BF01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90211348-0175-4D54-B4AC-CADB94B76C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90211348-0175-4D54-B4AC-CADB94B76C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90211348-0175-4D54-B4AC-CADB94B76C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90211348-0175-4D54-B4AC-CADB94B76C4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72C59D77-B590-41B3-B5B6-D9B4C038C90B}
 	EndGlobalSection
 EndGlobal

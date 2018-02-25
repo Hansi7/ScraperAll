@@ -20,7 +20,12 @@ namespace XMT281Scraper
     {
         static void Main(string[] args)
         {
+
+            string v =  " -l urlslist.txt -p 120.psr";
+            args = v.Split(' ');
+
             XMT281Scraper.Tools.ScraperWorker.DoWork(args);
+            Console.WriteLine("完成！");
             Console.ReadKey();
         }
     }
