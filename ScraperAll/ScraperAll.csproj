@@ -86,6 +86,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ScrapeWorker\ScrapeWorker.csproj">
+      <Project>{b8e425ae-0fc3-4b5f-aaa6-83f025c8bf01}</Project>
+      <Name>ScrapeWorker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XMT281Scraper\XMT281Scraper.csproj">
       <Project>{16cad867-fe64-4cfd-9d7e-a4bcfe2708cc}</Project>
       <Name>XMT281Scraper</Name>

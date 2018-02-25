@@ -109,5 +109,11 @@ namespace ScraperAll
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            XMT281Scraper.Tools.ScraperWorker.workWithTaskFileJSON(@"C:\Users\Hansi_281\ScraperAll\ScraperAll\bin\Debug\任务文件\bt1024.tsk");
+
+        }
     }
 }

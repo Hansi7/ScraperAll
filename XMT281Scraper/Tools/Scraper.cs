@@ -21,7 +21,10 @@ namespace XMT281Scraper.Tools
         {
             List<string> list = new List<string>();
             IEnumerable<HtmlAgilityPack.HtmlNode> nodes = null;
-
+            if (doc==null)
+            {
+                return list;
+            }
             if (string.IsNullOrEmpty(psr.XPath))
             {
                 usingCss = true;
