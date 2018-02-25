@@ -49,18 +49,61 @@ namespace ScraperAll
 
         private void button5_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "(*.*)所有文件|*.*";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+                string json = File.ReadAllText(ofd.FileName);
+
+                JObject jo = JObject.Parse(json);
+                
+                
+                StringWriter textWriter = new StringWriter();
+                JsonTextWriter jsonWriter = new JsonTextWriter(textWriter)
+                {
+                    Formatting = Newtonsoft.Json.Formatting.Indented,
+                    Indentation = 4,
+                    IndentChar = ' '
+                };
+                JsonSerializer.Create().Serialize(jsonWriter, jo);
+                textBox1.Text = textWriter.ToString();
+                textWriter.Dispose();
+                jsonWriter.Close();
 
 
+                JsonTextReader reader = new JsonTextReader(new StringReader(json));
+                StringBuilder sb = new StringBuilder();
+                bool grabnext = false;
+                while (reader.Read())
+                {
+                    if (reader.Value != null)
+                    {
+                        if (grabnext)
+                        {
+                            sb.AppendLine(reader.Value.ToString());
+                            grabnext = false;
+                        }
+                        if (reader.TokenType== JsonToken.PropertyName && reader.Value.ToString().StartsWith("c0"))
+                        {
+                            grabnext = true;
+                        }
+                        Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Token: {0}", reader.TokenType);
+                    }
+                }
+                textBox1.Text =  sb.ToString();
+                //using (TextReader tr = File.OpenText(ofd.FileName))
+                //{
+                //    using (Newtonsoft.Json.JsonTextReader jr = new JsonTextReader(tr))
+                //    {
 
-
-
-
-
-
-
-            return;
-
-            var jsonResult =  XMT281Scraper.Tools.ScraperWorker.workWithTaskFileJSON("THZ.tsk");
+                //    }
+                //}
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
