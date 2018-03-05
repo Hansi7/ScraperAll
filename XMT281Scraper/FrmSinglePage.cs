@@ -17,9 +17,9 @@ using System.IO;
 
 namespace XMT281Scraper
 {
-    public partial class Form1 : Form
+    public partial class FrmSinglePage : Form
     {
-        public Form1()
+        public FrmSinglePage()
         {
             InitializeComponent();
             ListPsrs = new List<Entities.Processor>();
@@ -30,8 +30,6 @@ namespace XMT281Scraper
         {
             webbrowser.Navigate(txt_WebbrowserURL.Text.Trim());
         }
-
-
         private void button2_Click(object sender, EventArgs e)
         {
             var dlg = new FrmTASKBuilder();
@@ -216,14 +214,15 @@ namespace XMT281Scraper
             System.Diagnostics.Process.Start(fn);
         }
 
-
-
+        HtmlAgilityPack.HtmlDocument doc;
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 var fn = "SOURCE " + DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".txt";
-                System.IO.File.WriteAllText(fn, getDocumentFromIE().DocumentNode.OuterHtml);
+                doc = getDocumentFromIE();
+                System.IO.File.WriteAllText(fn, doc.DocumentNode.OuterHtml);
+                this.ctrlPsrList1.Document = doc;
                 System.Diagnostics.Process.Start(fn);
             }
             catch (Exception err )

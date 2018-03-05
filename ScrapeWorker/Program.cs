@@ -20,7 +20,15 @@ namespace XMT281Scraper
     {
         static void Main(string[] args)
         {
-            XMT281Scraper.Tools.ScraperWorker.DoWork(args);
+            if (args.Length==0)
+            {
+                Console.WriteLine("需要接一个任务文件");
+                return;
+            }
+
+            var fn = XMT281Scraper.Tools.ScraperWorker.workWithTaskFileJSON(args[0].ToString());
+            Console.WriteLine(fn);
+            Console.WriteLine("完成！");
             Console.ReadKey();
         }
     }

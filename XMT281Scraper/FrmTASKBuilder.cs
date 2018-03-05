@@ -137,6 +137,7 @@ namespace XMT281Scraper
                 if (String.IsNullOrEmpty(txt_TaskName.Text))
                 {
                     saveFileName = Settings.TASK_SUBPATH + "\\TASK@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".tsk";
+
                     Tools.Serializer.Serialize(saveFileName, task);
                     return saveFileName;
                 }

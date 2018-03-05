@@ -9,15 +9,19 @@
 .vs/
 # Build results
 
-[Dd]ebug/
-[Rr]elease/
+Debug/
+debug/
+release/
+Release/
 x64/
 build/
-[Bb]in/
-[Oo]bj/
+bin/
+Bin/
+Obj/
+obj/
 Lib/
-Models/
-Covers/
+lib/
+
 #example
 
 
@@ -37,4 +41,5 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
-
+packages/
+.vs/

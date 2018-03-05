@@ -1,7 +1,11 @@
 ﻿#define outputView
+using Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace XMT281Scraper.Tools
 {
-    public static class ScraperWorker
+    public class ScraperWorker
     {
         static ScraperWorker()
         {
@@ -187,6 +191,211 @@ namespace XMT281Scraper.Tools
             //Console.ReadKey();
         }
 
+        private Result findByC0(string c0info)
+        {
+            foreach (Result item in listResult)
+            {
+                if (item.c0== c0info)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        List<Models.Result> listResult = new List<Models.Result>();
+
+        public void workWithTaskFileDB(string[] args)
+        {
+            try
+            {
+                string EXTRA_COLUMN1 = "未定义1";
+                string EXTRA_COLUMN2 = "未定义2";
+                string OUTPUT_FILENAME = "OUTPUT " + EXTRA_COLUMN1 + " " + EXTRA_COLUMN2 + ".xlsx";
+                string taskJson = "";
+
+                //这些参数在任务文件里面写上？
+
+                
+
+                var taskk = Tools.Serializer.DeSerializeTSK(taskJson);
+                Console.WriteLine("读取正常任务文件...ok!");
+
+                for (int i = taskk.Current; i <= taskk.StarEnd; i = i + taskk.StarGap)
+                {
+
+                    taskk.Current = i;
+                    Console.WriteLine("当前进行到页码.............................." + i + "/" + taskk.StarEnd);
+
+                    for (int j = 0; j < taskk.Processor.Count; j++)
+                    {
+
+                        Console.WriteLine("提取器位置..." + (j + 1).ToString() + "/" + taskk.Processor.Count);
+
+                        //field1 每页的数量
+                        var field0 = Tools.Scraper.Scrape(getor(taskk.CurrentURL), taskk.Processor[j]);
+
+                        foreach (var c0Item in field0)
+                        {
+                            listResult.Add(new Models.Result() { c0 = c0Item });
+                        }
+
+
+                        Console.WriteLine("提取到数据条数===" + field0.Count);
+
+                        //含有子处理器，将field0交给另外个函数处理。处理完毕后保证field0是处理后的结果。
+                        if (taskk.Processor[j].SubProcessor != null && taskk.Processor[j].SubProcessor.Count > 0)
+                        {
+                            Console.WriteLine("发现此项为含有扩展任务...爬取扩展任务~");
+                            int subPsrColumn = taskk.Processor.Count;//扩展的SubPsr结果从列序号开始。
+
+
+                            foreach (var c0Item in field0)
+                            {
+                                foreach (var subpro in taskk.Processor[j].SubProcessor)
+                                {
+                                    var field0_sub0_s = Tools.Scraper.Scrape(getor(c0Item), subpro);
+
+                                    Models.Result c0Result = findByC0(c0Item);//先通过查找找到C0的Result的对象引用
+
+                                    foreach (var field0_sub0 in field0_sub0_s)
+                                    {
+
+                                        var cloneR = (c0Result.Clone() as Models.Result);
+                                        cloneR.c9 = field0_sub0;//稍后就c8
+                                        
+                                        listResult.Add(cloneR);
+                                    }
+
+                                } 
+                            }
+
+                            List<List<string>> subResult = ProcessSub(taskk.Processor[j].SubProcessor, field0);
+
+                            Console.WriteLine("扩展任务完成！");
+
+                        }
+
+
+
+
+#if outputView
+
+                        Console.WriteLine("保存数据.............................OK!");
+#endif
+                    }
+                    
+                }
+
+                System.Diagnostics.Process.Start(OUTPUT_FILENAME);
+
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.ToString());
+                System.IO.File.WriteAllText("ERROR@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".log", err.ToString());
+            }
+            Console.WriteLine("按任意键退出...");
+            //Console.ReadKey();
+        }
+
+        public static string workWithTaskFileJSON(string taskjsonFile)
+        {
+            JArray jar = new JArray();
+            JObject jo = new JObject();
+            try
+            {
+
+                var taskk = Tools.Serializer.DeSerializeTSK(taskjsonFile);
+                Console.WriteLine("读取正常任务文件...ok!");
+                //几个提取器几个列表，先占位。
+                //尽管先占位不可靠，因为有SubProcessor，但还是先扩好空间。
+                
+                for (int i = taskk.Current; i <= taskk.StarEnd; i = i + taskk.StarGap)
+                {
+
+                    taskk.Current = i;
+                    Console.WriteLine("当前进行到页码.............................." + i + "/" + taskk.StarEnd);
+                    for (int j = 0; j < taskk.Processor.Count; j++)
+                    {
+                        int urlcount = 0;
+                        Console.WriteLine("提取器位置..." + (j + 1).ToString() + "/" + taskk.Processor.Count);
+                        //field1 每页的数量
+                        var field0 = Tools.Scraper.Scrape(getor(taskk.CurrentURL), taskk.Processor[j]);
+                        Console.WriteLine("提取到数据条数===" + field0.Count);
+
+                        foreach (var f0i in field0)
+                        {
+                            if (j==0)
+                            {
+                                JObject jo2 = new JObject();
+
+                                jo2["c0"] = f0i;
+
+                                jo[i.ToString()+"_" + urlcount.ToString()] = jo2;
+                            }
+                            else
+                            {
+                                JObject channel = (JObject)jo[i.ToString() +"_"+ urlcount.ToString()];
+
+                                channel.Property("c" + (j-1).ToString()).AddAfterSelf(new JProperty("c" + j.ToString(), f0i));
+                            }
+                            urlcount++;
+                        }
+                        
+
+                        //含有子处理器，将field0交给另外个函数处理。处理完毕后保证field0是处理后的结果。
+                        
+                        if (taskk.Processor[j].SubProcessor != null && taskk.Processor[j].SubProcessor.Count > 0)
+                        {
+                            Console.WriteLine("发现此项为含有扩展任务...爬取扩展任务~");
+                            int subPsrColumn = taskk.Processor.Count;//扩展的SubPsr结果从列序号开始。
+                            int urlcount_sub = 0;
+                            foreach (var c0Item in field0)
+                            {
+                                foreach (var subpro in taskk.Processor[j].SubProcessor)
+                                {
+                                    var field0_sub0_s = Tools.Scraper.Scrape(getor(c0Item), subpro);
+                                    Console.WriteLine("扩展任务+" + field0_sub0_s.Count);
+                                    int subItemcount = 0;
+                                    foreach (var field0_sub0 in field0_sub0_s)
+                                    {
+                                        JObject channel_sub = (JObject)jo[i.ToString() + "_" + urlcount_sub.ToString()];
+                                        channel_sub.Property("c" + j.ToString()).AddAfterSelf(new JProperty("c" + j.ToString() + "_" + subItemcount.ToString(), field0_sub0));
+                                        subItemcount++;
+                                    }
+                                }
+                                urlcount_sub++;
+                            }
+                            Console.WriteLine("保存数据.............................OK!");
+                        }
+                        
+                    }
+                }
+
+                var fn = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_JsonResult.txt";
+                using (StreamWriter file = File.CreateText(fn))
+                using (JsonTextWriter writer = new JsonTextWriter(file)
+                {
+                    Formatting = Newtonsoft.Json.Formatting.Indented,
+                    Indentation = 4,
+                    IndentChar = ' '
+                })
+                {
+                    jo.WriteTo(writer);
+                }
+
+                return fn;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.ToString());
+                System.IO.File.WriteAllText("ERROR@" + DateTime.Now.ToString("yyyyMMdd HHmmss") + ".log", err.ToString());
+                return string.Empty;
+            }
+        }
+
+
         private static List<List<string>> ProcessSub(List<Entities.Processor> prcList, List<string> field0)
         {
             //这个位置有问题呀。
@@ -245,8 +454,15 @@ namespace XMT281Scraper.Tools
 
             foreach (var url in urls)
             {
-                var f1 = Tools.Scraper.Scrape(getor(url), psr);
-                sb.AppendLine(url + "\t" + f1[0].ToString());
+
+                
+                var htmlt = Tools.DownLoader.GetDocument(url);
+                var f1 = Tools.Scraper.Scrape(htmlt, psr);
+                Console.WriteLine(DateTime.Now.ToString() + " GET:" + f1.Count);
+                foreach (var item in f1)
+                {
+                    sb.AppendLine(url + "\t" + item);
+                }
             }
 
             System.IO.File.WriteAllText("taskFromListfile.txt", sb.ToString());
@@ -356,7 +572,7 @@ namespace XMT281Scraper.Tools
             {
                 workWithTaskFile(args);
             }
-            if (argument.Has("-l") && argument.Has("-t"))
+            if (argument.Has("-l") && argument.Has("-p"))
             {
                 workWithListFile(args);
             }

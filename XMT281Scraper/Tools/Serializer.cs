@@ -16,7 +16,11 @@ namespace XMT281Scraper.Tools
         public static void Serialize(string filename, Entities.Processor psr)
         {
             using (StreamWriter sw = new StreamWriter(filename))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            using (JsonWriter writer = new JsonTextWriter(sw) {
+                Formatting = Formatting.Indented,
+                Indentation = 4,
+                IndentChar = ' '
+            })
             {
                 serializer.Serialize(writer, psr);
                 //{"Name":null,"StartURL":null,"XPath":null,"CssSelector":null,"NodeOffset":3,"NodeAttribute":null,"Remover":["FFFF","FFFFJJ"],"Replacer":{"s":"B","J":"k"}}
@@ -79,7 +83,12 @@ namespace XMT281Scraper.Tools
         public static void Serialize(string filename, Entities.ScraperTask tsk)
         {
             using (StreamWriter sw = new StreamWriter(filename))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            using (JsonWriter writer = new JsonTextWriter(sw)
+            {
+                Formatting = Formatting.Indented,
+                Indentation = 4,
+                IndentChar = ' '
+            })
             {
                 serializer.Serialize(writer, tsk);
             }

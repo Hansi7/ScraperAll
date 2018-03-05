@@ -18,6 +18,11 @@ namespace XMT281Scraper
             InitializeComponent();
             this.Document = document;
         }
+        public FrmPSRBuilder()
+        {
+            InitializeComponent();
+            this.Document = null;
+        }
 
         public Entities.ScraperTask ScrapyTask { get; set; }
         public Entities.Processor Processor { get; set; }
